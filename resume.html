@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>蘇紀豪 Jeff Su | PM Lead · Product Owner</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #050a0f;
@@ -89,48 +89,44 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    background: rgba(5,10,15,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    background: rgba(8,12,20,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,200,255,0.15);
   }
   .nav-logo {
-    font-family: 'Orbitron', monospace;
-    font-size: 14px;
-    color: var(--accent);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-  }
-  .nav-logo span { color: var(--accent2); }
-  .nav-links { display: flex; gap: 32px; }
-  .nav-links a {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00c8ff;
+    letter-spacing: 0.05em;
     text-decoration: none;
-    letter-spacing: 2px;
+  }
+  .nav-logo span { color: inherit; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #c8e6f0;
+    text-decoration: none;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    transition: color 0.3s;
-    position: relative;
+    transition: color 0.2s;
   }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
-    background: var(--accent); transition: width 0.3s;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-links a.active { color: var(--accent); }
-  .nav-links a.active::after { width: 100%; }
+  .nav-links a:hover { color: #00c8ff; }
+  .nav-links a.active { color: #00c8ff; }
 
   /* Nav scrolled state */
   nav.scrolled {
-    padding: 10px 48px;
-    background: rgba(5,10,15,0.97);
-    border-bottom-color: rgba(0,200,255,0.25);
-    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
-    transition: padding 0.3s, background 0.3s, box-shadow 0.3s;
+    padding: 0 2rem;
+    background: rgba(8,12,20,0.85);
+    border-bottom-color: rgba(0,200,255,0.15);
+    box-shadow: none;
+    transition: background 0.3s;
   }
-  nav { transition: padding 0.3s, background 0.3s, box-shadow 0.3s; }
+  nav { transition: background 0.3s; }
 
   /* Mobile hamburger */
   .nav-hamburger {
@@ -139,9 +135,10 @@
     cursor: pointer; padding: 4px;
   }
   .nav-hamburger span {
-    display: block; width: 24px; height: 1.5px;
-    background: var(--accent);
+    display: block; width: 22px; height: 2px;
+    background: #c8e6f0;
     transition: transform 0.3s, opacity 0.3s;
+    border-radius: 2px;
   }
   .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   .nav-hamburger.open span:nth-child(2) { opacity: 0; }
@@ -151,18 +148,18 @@
     .nav-hamburger { display: flex; }
     .nav-links {
       display: none;
-      position: fixed; top: 57px; left: 0; right: 0;
-      flex-direction: column; gap: 0;
-      background: rgba(5,10,15,0.98);
-      border-bottom: 1px solid var(--border);
-      padding: 8px 0;
-      backdrop-filter: blur(16px);
+      position: fixed; top: 64px; left: 0; right: 0;
+      flex-direction: column; gap: 1.5rem;
+      background: rgba(8,12,20,0.97);
+      border-bottom: 1px solid rgba(0,200,255,0.15);
+      padding: 1.5rem 2rem;
+      backdrop-filter: blur(20px);
     }
     .nav-links.open { display: flex; }
     .nav-links a {
-      padding: 16px 32px;
-      border-bottom: 1px solid rgba(0,200,255,0.06);
-      font-size: 13px;
+      padding: 0;
+      border-bottom: none;
+      font-size: 1rem;
     }
   }
 
@@ -676,13 +673,14 @@
 
 <!-- NAV -->
 <nav id="mainNav">
-  <div class="nav-logo">JEFF <span>SU</span></div>
+  <a class="nav-logo" href="https://jeffsu0816.github.io/Jeff-su.github.io/">JEFF SU</a>
   <div class="nav-links" id="navLinks">
-    <a href="#experience" data-section="experience">經歷</a>
-    <a href="#skills" data-section="skills">專長</a>
-    <a href="#education" data-section="education">學歷</a>
-    <a href="#contact" data-section="contact">聯絡</a>
-    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/" target="_blank" style="color:var(--accent2);">作品集 ↗</a>
+    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/">HOME</a>
+    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">RESUME</a>
+    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/portfolio">PORTFOLIO</a>
+    <a href="#experience" data-section="experience">WORK</a>
+    <a href="#skills" data-section="skills">SKILLS</a>
+    <a href="#education" data-section="education">EDUCATION</a>
   </div>
   <div class="nav-hamburger" id="hamburger">
     <span></span><span></span><span></span>
@@ -1014,55 +1012,6 @@
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<div class="section-inner">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Contact</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="contact-grid">
-    <div class="contact-card">
-      <div class="contact-icon">📱</div>
-      <div class="contact-type">Mobile</div>
-      <div class="contact-val">0922-134-990</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">✉️</div>
-      <div class="contact-type">Email</div>
-      <div class="contact-val">suzuki5403@gmail.com</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">📍</div>
-      <div class="contact-type">Location</div>
-      <div class="contact-val">新北市淡水區</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">💼</div>
-      <div class="contact-type">Job Type</div>
-      <div class="contact-val">全職 · 日班 · 台北/新北</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">🎯</div>
-      <div class="contact-type">Target Role</div>
-      <div class="contact-val">產品經理 / 專案經理</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-icon">⚡</div>
-      <div class="contact-type">Available</div>
-      <div class="contact-val">錄取後一個月可上班</div>
-    </div>
-    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/" target="_blank" class="contact-card" style="text-decoration:none;border-color:rgba(0,255,157,0.3);cursor:pointer;">
-      <div class="contact-icon">📂</div>
-      <div class="contact-type" style="color:var(--accent2);">Portfolio</div>
-      <div class="contact-val" style="color:var(--accent2);">查看作品集 ↗</div>
-    </a>
-  </div>
-</div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">JEFF SU · 蘇紀豪</div>
@@ -1123,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Nav: scroll shrink + active highlight ──
   const nav = document.getElementById('mainNav');
-  const sections = ['experience', 'skills', 'education', 'contact'];
+  const sections = ['experience', 'skills', 'education'];
   const navLinks = document.querySelectorAll('.nav-links a[data-section]');
 
   function updateActiveNav() {
