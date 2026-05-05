@@ -82,7 +82,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text2);
+    color: var(--text);
     text-decoration: none;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -124,7 +124,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    color: var(--text2);
+    color: var(--text);
     letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: color 0.2s;
@@ -292,7 +292,6 @@
     font-size: 15px;
     font-weight: 300;
     color: var(--text-muted);
-    max-width: 600px;
     margin-bottom: 2.5rem;
     line-height: 1.9;
   }
@@ -444,8 +443,8 @@
   /* ── ABOUT ── */
   .about-layout {
     display: grid;
-    grid-template-columns: 1fr 250px;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
     align-items: start;
   }
   .about-text p {
@@ -586,23 +585,32 @@
 </style>
 </head>
 <body>
-<nav><a class="nav-logo" href="https://jeffsu0816.github.io/Jeff-su.github.io/">JEFF SU</a><ul class="nav-links"><li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/">HOME</a></li><li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">RESUME</a></li><li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/portfolio">PORTFOLIO</a></li><li><a href="#what-i-do">WORK</a></li><li><a href="#strengths">SKILLS</a></li><li><a href="#about">ABOUT</a></li><li><a href="#contact">CONTACT</a></li></ul></nav>
+<nav><a class="nav-logo" href="https://jeffsu0816.github.io/Jeff-su.github.io/">JEFF SU</a><ul class="nav-links"><li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/">HOME</a></li><li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">RESUME</a></li><li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/portfolio">PORTFOLIO</a></li><li><a href="#what-i-do">WORK</a></li><li><a href="#strengths">SKILLS</a></li><li><a href="#about">ABOUT</a></li><li><a href="#contact">CONTACT</a></li></ul><button aria-label="Menu" class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')"><span></span><span></span><span></span></button></nav>
+<div class="mobile-menu">
+<span onclick="window.location.href='https://jeffsu0816.github.io/Jeff-su.github.io/';">Home</span>
+<span onclick="window.location.href='https://jeffsu0816.github.io/Jeff-su.github.io/resume';">Resume</span>
+<span onclick="window.location.href='https://jeffsu0816.github.io/Jeff-su.github.io/portfolio';">Portfolio</span>
+<span onclick="document.getElementById('what-i-do').scrollIntoView({behavior:'smooth'});document.querySelector('.mobile-menu').classList.remove('open');">Work</span>
+<span onclick="document.getElementById('strengths').scrollIntoView({behavior:'smooth'});document.querySelector('.mobile-menu').classList.remove('open');">Skills</span>
+<span onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});document.querySelector('.mobile-menu').classList.remove('open');">About</span>
+<span onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});document.querySelector('.mobile-menu').classList.remove('open');">Contact</span>
+</div>
 <main>
 <!-- HERO -->
 <section id="hero">
 <div class="hero-eyebrow fade-up d1">PRODUCT MANAGER · PLATFORM / FINTECH / B2B SYSTEMS</div>
-<h1 class="fade-up d2">PLATFORM<br/><span class="green">FINTECH</span> &amp; B2B</h1>
-<div class="hero-role fade-up d2">// PLATFORM · FINTECH · B2B SYSTEMS<span class="cursor"></span></div>
+<h1 class="fade-up d2">平台型產品經理<br/><span class="green">Platform PM｜FinTech｜B2B Systems</span></h1>
+<div class="hero-role fade-up d2">// 我專注在會員、交易、金流與後台系統，把複雜流程整理成可落地、可擴展的產品方案。<span class="cursor"></span></div>
 <p class="hero-sub fade-up d3">
-      專注於平台型產品設計，擅長將複雜需求轉化為可落地的產品方案，<br/>
-      涵蓋帳戶、資產、交易與後台系統。<br/>
-      曾主導金流與交易系統從 0→1 上線，建立帳戶、資產與訂單核心架構。
+      過去我做過 0→1 產品上線，也接手過既有系統的重整與優化。<br/>
+      在實際專案中，我優化註冊與儲值流程，降低流程中斷，並讓核心轉換率明顯提升（約 +10~20%）。<br/>
+      相比「做了多少功能」，我更在意的是：這個產品決策，實際帶來了什麼影響。
     </p>
 <div class="hero-bullets fade-up d4">
-<div class="hero-bullet">規劃平台產品（會員中心 / 商家後台 / 資產與交易系統）</div>
-<div class="hero-bullet">設計金流邏輯（KYC / 錢包 / 訂單與帳務）</div>
-<div class="hero-bullet">進行產品決策（優先排序 / 範圍控制 / MVP 定義）</div>
-<div class="hero-bullet">導入 AI 優化需求分析與產品流程（效率提升 20%+）</div>
+<div class="hero-bullet">規劃平台型產品：會員中心、商家後台、資產與交易系統</div>
+<div class="hero-bullet">設計核心流程：KYC、錢包、訂單、帳務與金流邏輯</div>
+<div class="hero-bullet">做產品取捨：定義 MVP、排優先級、控制開發範圍</div>
+<div class="hero-bullet">導入 AI 與流程優化：提升需求整理、溝通與交付效率</div>
 </div>
 <div class="btn-group fade-up d5">
 <a class="btn btn-primary" href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">VIEW_RESUME →</a>
@@ -614,24 +622,24 @@
 <div class="section-label">FOCUS AREAS</div>
 <h2>WHAT I DO</h2>
 <p class="intro-text">
-      我專注於解決<strong>「複雜系統如何變得可理解與可擴展」</strong>的問題，<br/>特別是在 B2B 與平台型產品中，將模糊需求轉化為可落地的產品方案，並進行優先排序與範圍控制。
+      我主要處理「流程複雜、角色多、系統彼此牽動」的產品問題，特別是在轉換卡關、流程中斷或跨系統不一致的情境下，協助團隊找出真正的瓶頸。<br/>我的工作不是單純把需求寫成規格，而是先釐清問題、判斷優先順序，再把方案推到可以被設計、開發、測試與營運落地。
     </p>
 <div class="do-list">
 <div class="do-list-item">
 <span class="do-num">01</span>
-<div class="do-text-wrap"><span class="do-text">平台型產品（會員中心 / 商家後台）</span><span class="do-sub">建立帳戶、資產與交易的核心結構</span></div>
+<div class="do-text-wrap"><span class="do-text">平台型產品規劃</span><span class="do-sub">建立會員中心、商家後台與資產交易流程，讓帳戶、權限、訂單與資料流能穩定串接。</span></div>
 </div>
 <div class="do-list-item">
 <span class="do-num">02</span>
-<div class="do-text-wrap"><span class="do-text">金流與帳務系統（KYC / 錢包 / 訂單 / 風控）</span><span class="do-sub">設計交易與帳務邏輯，確保資料一致性與安全性</span></div>
+<div class="do-text-wrap"><span class="do-text">金流與帳務邏輯</span><span class="do-sub">規劃 KYC、錢包、訂單與帳務流程，在使用體驗、風險控管與資料一致性之間做取捨。</span></div>
 </div>
 <div class="do-list-item">
 <span class="do-num">03</span>
-<div class="do-text-wrap"><span class="do-text">多系統整合（第三方 KYC / 金流 / 鏈上 / GA / Conversion）</span><span class="do-sub">建立可運行的產品生態與資料串接架構</span></div>
+<div class="do-text-wrap"><span class="do-text">多系統整合</span><span class="do-sub">串接第三方 KYC、金流、鏈上與分析工具，降低跨系統斷點，讓產品流程能完整運作。</span></div>
 </div>
 <div class="do-list-item">
 <span class="do-num">04</span>
-<div class="do-text-wrap"><span class="do-text">複雜流程設計與產品落地</span><span class="do-sub">將需求轉化為可實作流程，降低開發與營運風險</span></div>
+<div class="do-text-wrap"><span class="do-text">產品落地與範圍控制</span><span class="do-sub">把模糊需求拆成可執行方案，定義 MVP 與優先順序，避免團隊把時間花在低影響功能上。</span></div>
 </div>
 </div>
 </section>
@@ -645,81 +653,78 @@
 <div class="strength-en">Product Decision Making</div>
 <div class="strength-zh">產品決策</div>
 </div>
-<div class="strength-desc">能從模糊需求中進行優先排序與範圍控制，定義 MVP 並推動落地</div>
+<div class="strength-desc">能在需求、時程與開發資源限制下，判斷什麼該先做、什麼該延後，並定義可落地的 MVP。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">Requirement Abstraction</div>
-<div class="strength-zh">需求抽象化</div>
+<div class="strength-en">Requirement Structuring</div>
+<div class="strength-zh">需求結構化</div>
 </div>
-<div class="strength-desc">能從客戶需求中抽象出產品方向，並轉化為可標準化的系統設計</div>
+<div class="strength-desc">將模糊需求整理成清楚的使用流程、邏輯規則與驗收標準，降低溝通成本與返工機率。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">Platform &amp; System Design</div>
-<div class="strength-zh">平台與系統設計</div>
+<div class="strength-en">Platform &amp; System Thinking</div>
+<div class="strength-zh">平台與系統思維</div>
 </div>
-<div class="strength-desc">設計會員與後台系統，建立帳戶、資產與交易的核心架構</div>
+<div class="strength-desc">理解會員、交易、資產、帳務與後台之間的關聯，能設計可擴充、可維護的產品流程。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
 <div class="strength-en">Transaction &amp; Risk Logic</div>
 <div class="strength-zh">交易與風控邏輯</div>
 </div>
-<div class="strength-desc">規劃 KYC、帳務與交易流程，平衡使用體驗與風險控管</div>
+<div class="strength-desc">熟悉 KYC、錢包、訂單、帳務與金流情境，能在體驗與風險之間做合理取捨。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">System Integration</div>
-<div class="strength-zh">系統整合</div>
+<div class="strength-en">Cross-functional Delivery</div>
+<div class="strength-zh">跨部門推進</div>
 </div>
-<div class="strength-desc">整合金流、KYC、鏈上與分析工具，建立可運行的產品生態</div>
+<div class="strength-desc">能協調設計、開發、QA、營運、AM 與第三方廠商，讓需求不只停在文件，而是穩定上線。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
 <div class="strength-en">AI-Driven Workflow</div>
 <div class="strength-zh">AI 流程優化</div>
 </div>
-<div class="strength-desc">導入 AI 優化需求分析與產品流程，提升決策與溝通效率</div>
+<div class="strength-desc">導入 AI 協助需求整理、文件產出、票務管理與例行溝通，提升產品與專案協作效率。</div>
 </div>
 </div>
 </section>
-<!-- ABOUT</div>
-  </section>
-
-  <!-- ABOUT -->
+<!-- ABOUT -->
 <section id="about">
 <div class="section-label">BACKGROUND</div>
 <h2>ABOUT ME</h2>
 <div class="about-layout">
 <div class="about-text">
 <p>
-          具備 <strong>6 年產品與專案管理經驗</strong>，長期專注於 B2B 與平台型產品，參與多個產品從 0 到 1 的規劃與上線。
+          我有 <strong>6 年以上產品與專案管理經驗</strong>，主要負責平台型產品、FinTech 流程與 B2B 系統。過去參與多個 0→1 產品規劃與上線，也接手過既有產品的架構重整、流程優化與跨部門協作，處理過註冊、KYC、錢包、訂單、帳務與金流等核心流程。
         </p>
 <p>
-          擅長在需求、技術與系統限制間進行取捨，<strong>並定義可落地的產品方案</strong>，將模糊需求轉化為具體產品設計，並確保系統可行與穩定落地。
+          我擅長在需求很多、資源有限、系統限制明確的情境下，協助團隊釐清真正該解的問題，主導需求取捨與優先順序，並把產品方向轉成可執行的規格、流程與驗收標準。
         </p>
 <p>
-          過去經驗涵蓋<strong>會員中心、商家後台、金流與資產系統</strong>，並持續導入 AI 工具提升產品開發效率與決策品質。
+          近期也持續導入 AI 到產品流程中，用於需求整理、PRD 撰寫、Jira 票務、自動化檢查與跨部門溝通，提升整體交付效率。
         </p>
-</div>
 </div>
 <div class="about-stats">
 <div class="stat-item">
 <div class="stat-num">6+</div>
-<div class="stat-label">YRS PM EXPERIENCE</div>
+<div class="stat-label">YEARS IN PRODUCT / PROJECT MANAGEMENT</div>
 </div>
 <div class="stat-item">
 <div class="stat-num">30+</div>
-<div class="stat-label">CROSS-FUNCTIONAL COLLABORATION</div>
+<div class="stat-label">CROSS-FUNCTIONAL STAKEHOLDERS</div>
 </div>
 <div class="stat-item">
-<div class="stat-num">20%</div>
-<div class="stat-label">EFFICIENCY GAIN VIA AI</div>
+<div class="stat-num">20%+</div>
+<div class="stat-label">EFFICIENCY GAIN VIA AI WORKFLOW</div>
 </div>
 <div class="stat-item">
 <div class="stat-num">0→1</div>
-<div class="stat-label">PRODUCTS BUILT</div>
+<div class="stat-label">PRODUCTS LAUNCHED</div>
+</div>
 </div>
 </div>
 </section>
@@ -727,8 +732,8 @@
 <section id="contact">
 <div class="section-label">GET IN TOUCH</div>
 <h2>LET'S CONNECT</h2>
-<p class="contact-sub">// 歡迎交流產品、FinTech 或系統設計相關機會</p>
-<p class="contact-open">目前開放 Product Manager / Platform PM 機會</p>
+<p class="contact-sub">// 歡迎交流平台產品、FinTech、B2B 系統與 AI 工作流相關機會</p>
+<p class="contact-open">目前開放：Product Manager / Platform PM / FinTech PM 相關機會</p>
 <div class="contact-links">
 <a class="contact-link" href="mailto:suzuki5403@gmail.com">
 <svg fill="none" height="14" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="14"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m2 7 10 7 10-7"></path></svg>
