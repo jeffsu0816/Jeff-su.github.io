@@ -196,6 +196,7 @@
     color: #fff;
     text-shadow: 0 0 40px rgba(0,200,255,0.4);
     margin-bottom: 8px;
+    white-space: nowrap;
   }
   .hero h1 .accent { color: var(--accent); }
 
@@ -273,8 +274,8 @@
 
   /* HERO STATS */
   .hero-stats {
-    position: absolute; right: 48px; top: 50%;
-    transform: translateY(-50%);
+    position: absolute; right: 48px; top: 288px;
+    transform: none;
     display: flex; flex-direction: column; gap: 24px;
   }
   .stat-card {
@@ -657,6 +658,7 @@
 
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
+    nav.scrolled { padding: 16px 24px; }
     .section-inner { padding: 80px 24px; }
     .hero { padding: 100px 24px 80px; flex-direction: column; }
     .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
@@ -692,7 +694,7 @@
 <div class="hero">
   <div class="hero-content">
     <div class="hero-label animate delay-1">Platform / FinTech Product Manager</div>
-    <h1 class="animate delay-2 glitch">蘇<span class="accent">紀豪</span></h1>
+    <h1 class="animate delay-2 glitch">JEFF SU</h1>
     <div class="hero-en animate delay-2">JEFF SU</div>
     <div class="hero-title animate delay-3">產品經理（Platform / FinTech）</div>
     <p class="hero-desc animate delay-3">
@@ -752,27 +754,25 @@
         <div>
           <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;">✦ 核心成果</div>
           <ul class="exp-achievements">
-            <li>建立產品與專案流程，提升整體交付效率與跨部門協作穩定性</li>
-            <li>導入 AI + 流程自動化，整體效率提升 <strong>20%</strong>，部分流程提升 <strong>90%</strong></li>
-            <li>主導產品架構優化與 UI/UX 改版，提升使用體驗與轉換流程</li>
+            <li>管理 <strong>7 位 PM</strong>，建立需求評估與決策機制（impact / effort / risk），讓團隊聚焦高影響項目</li>
+            <li>重整產品優先級與跨部門流程，先處理高影響需求，讓整體交付更穩定（約 +10~20%）</li>
+            <li>調整註冊、儲值與核心使用流程，重新排序需求與範圍，讓轉換更穩定（約 +10~20%）</li>
+            <li>導入 AI 工具於需求整理、PRD 撰寫、Jira 管理與例行溝通，開發效率提升約 <strong>30%</strong></li>
           </ul>
         </div>
         <div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;">✦ 工作內容</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;">✦ 決策與推進</div>
           <ul class="exp-achievements">
-            <li><strong>流程建立與優化：</strong>建立並優化產品開發與跨部門流程，降低溝通成本並提升交付效率</li>
-            <li><strong>團隊管理與績效制度：</strong>管理 7 位 PM 並設計績效制度，強化團隊目標導向與產出效率</li>
-            <li><strong>產品策略與優先度管理：</strong>擔任 PO 主導產品架構優化，負責 UI/UX 策略、功能優先排序與產品決策</li>
-            <li><strong>跨部門協作：</strong>協調開發、設計、QA、AM 與支付團隊，確保需求與開發進度同步</li>
-            <li><strong>品質與交付管理：</strong>制定驗收標準與品質流程，確保產品穩定上線</li>
+            <li>先釐清開發、QA、設計、AM 與支付團隊的高風險斷點，再建立協作節點與驗收標準，讓溝通往返減少（約 20~30%）</li>
+            <li>在時程與資源限制下主導 MVP 與優先順序，避免團隊把時間花在低影響需求</li>
+            <li>在需求不明確情況下，先定義核心流程與優先順序，再轉成可執行規格，讓方案能穩定被設計、開發與落地</li>
           </ul>
         </div>
         <div>
           <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent2);letter-spacing:2px;margin-bottom:10px;">✦ AI 導入與產品流程優化</div>
           <ul class="exp-achievements">
-            <li>導入 AI 工具（Claude）於需求分析與 PRD 撰寫流程，提升文件產出效率與需求整理品質</li>
-            <li>建立 AI 輔助工作流程，應用於需求釐清、技術文件理解與跨部門溝通</li>
-            <li>透過 AI 優化產品開發流程，整體效率提升 <strong>20%</strong>，部分流程提升達 <strong>90%</strong></li>
+            <li>導入 Claude 與流程自動化，將 AI 落到需求整理、PRD、Jira 與例行溝通，讓決策與協作更快成形</li>
+            <li>把 AI 工作流接進日常產品流程，整體效率提升約 <strong>30%</strong>，部分流程達 <strong>80~90%</strong>，也讓跨部門同步更順</li>
           </ul>
         </div>
       </div>
@@ -793,7 +793,9 @@
       </div>
       <div class="exp-company"><span>樺晟電子股份有限公司</span> · 電腦及其週邊設備製造業 · 台北市南港區</div>
       <ul class="exp-achievements">
-        <li><strong>負責智能販賣機專案</strong>，執行硬體 + IoT + 現場設備整合專案管理</li>
+        <li>整合硬體、IoT 與現場設備流程，先釐清例外情境與維運風險，降低專案落地阻力（約 10~20%）</li>
+        <li>在需求不明確情況下，先定義現場流程與驗收節點，再轉成可執行規格，讓溝通往返減少（約 20~30%）</li>
+        <li>先判斷硬體限制與高風險流程，再決定開發範圍與上線順序，讓專案能在短期內穩定推進</li>
       </ul>
       <div class="exp-highlight">
         <span class="exp-tag">IoT</span>
@@ -810,11 +812,11 @@
       </div>
       <div class="exp-company"><span>羅卡斯科技股份有限公司</span> · 電腦軟體服務業 · 台北市大同區</div>
       <ul class="exp-achievements">
-        <li>帶領 <strong>30+ 跨部門團隊</strong>，從 0 到 1 建立 NFT 交易所產品</li>
-        <li>負責產品規劃、競品分析、風險評估與需求管理</li>
-        <li>產品上線後為公司創造<strong>每月近 100 萬元利潤</strong></li>
-        <li>指導新人 PM 進行專案規劃、產品規格與風險管理</li>
-        <li>參與 GameFi、社群平台與 AI 交友產品規劃討論</li>
+        <li>從 0 到 1 建立 NFT 交易所，先定義會員、交易與資產核心流程，產品上線後創造<strong>每月近 100 萬元利潤</strong>，並持續優化交易與資產流程以支撐成長</li>
+        <li>帶領 <strong>30+ 跨部門團隊</strong>，建立需求評估與風險決策機制，讓開發資源集中在高影響項目</li>
+        <li>先釐清高風險交易、錢包與帳務流程，再決定開發範圍與上線順序，降低營運與例外處理成本（約 10~20%）</li>
+        <li>在需求不明確情況下，先定義核心流程與優先順序，再指導新人 PM 轉成規格與驗收標準，讓溝通落差減少（約 20~30%）</li>
+        <li>評估 GameFi、社群平台與 AI 交友新方向，判斷產品延伸與投入順序</li>
       </ul>
       <div class="exp-highlight">
         <span class="exp-tag">NFT Exchange</span>
@@ -832,10 +834,10 @@
       </div>
       <div class="exp-company"><span>萬達資訊服務有限公司</span> · 電腦軟體服務業 · 台北市中正區</div>
       <ul class="exp-achievements">
-        <li>領導近 20 人團隊，從 0 到 1 建立<strong>金流系統產品</strong></li>
-        <li>負責專案規劃、風險評估、競品分析以及跨部門溝通</li>
-        <li>產品上線後建立多個品牌，<strong>為公司帶來每月數百萬元營收</strong></li>
-        <li>針對中國市場，開發 App 與 H5 雙版本</li>
+        <li>從 0 到 1 規劃<strong>金流系統產品</strong>，先定義註冊、儲值、訂單與帳務邏輯，產品上線後支撐多品牌並帶來<strong>每月數百萬元營收</strong></li>
+        <li>帶領近 20 人團隊，建立功能優先順序與風險評估機制，讓高複雜度專案能穩定推進</li>
+        <li>在需求不明確情況下，先定義註冊、儲值與帳務核心流程，再轉成可執行規格，讓開發與驗收節奏更一致</li>
+        <li>先釐清中國市場使用情境與高風險流程，再決定 App 與 H5 雙版本範圍，加快產品落地速度（約 10~20%）</li>
       </ul>
       <div class="exp-highlight">
         <span class="exp-tag">Payment System</span>
@@ -853,9 +855,9 @@
       </div>
       <div class="exp-company"><span>鑫高科技有限公司</span> · 綜合商品批發代理業 · 台北市大同區</div>
       <ul class="exp-achievements">
-        <li>與通路商合作販售公司產品，負責產品活動提報</li>
-        <li>產品售後技術支援與維修，客服與維修人員教育訓練</li>
-        <li>管理 4 人以下團隊，負責庫存盤點與整理</li>
+        <li>先釐清通路需求與銷售重點，再整理成提案與活動方案，提升產品導入效率與合作穩定性（約 10~20%）</li>
+        <li>建立售後支援與教育訓練節奏，讓客服與維修端的溝通往返減少（約 20~30%）</li>
+        <li>帶領 4 人以下團隊安排維修與庫存節奏，讓交付與支援更穩定（約 10~20%）</li>
       </ul>
     </div>
   </div>
@@ -865,7 +867,7 @@
     <div class="section-num" style="margin-bottom:24px;">✦ AI INTEGRATION RESULTS</div>
     <div class="ai-metrics">
       <div class="ai-metric">
-        <span class="ai-metric-num">20%</span>
+        <span class="ai-metric-num">30%</span>
         <div class="ai-metric-label">整體效率提升</div>
       </div>
       <div class="ai-metric">
@@ -873,7 +875,7 @@
         <div class="ai-metric-label">部分流程最高提升</div>
       </div>
       <div class="ai-desc">
-        <p>近期導入 <strong>Claude AI</strong> 結合流程自動化，涵蓋 PRD 撰寫、API 文件分析、多語翻譯、需求釐清、票務同步、公告發送等環節，有效加速產品決策與交付速度，提升跨部門協作效率。</p>
+        <p>近期導入 <strong>Claude AI</strong> 結合流程自動化，落在需求整理、PRD 撰寫、Jira 管理、票務同步與例行溝通，整體效率提升約 <strong>30%</strong>，部分流程達 <strong>80~90%</strong>，也讓產品決策與跨部門協作更快落地。</p>
       </div>
     </div>
   </div>
@@ -895,16 +897,16 @@
       <div class="skill-card-title">產品決策經驗</div>
       <div class="skill-items">
         <div class="skill-row">
-          <div class="skill-name"><span>能在不明確需求下，快速判斷客戶實際目標並轉化為產品方案</span></div>
+          <div class="skill-name"><span>在不明確需求下快速判斷真正瓶頸，轉成可執行產品方案</span></div>
         </div>
         <div class="skill-row">
-          <div class="skill-name"><span>擅長在功能完整性與開發時程間進行取捨（Trade-off）</span></div>
+          <div class="skill-name"><span>主導 MVP、功能取捨與優先順序，讓資源集中在高影響項目</span></div>
         </div>
         <div class="skill-row">
-          <div class="skill-name"><span>透過邏輯分析與風險評估，設計穩定且可擴展的系統架構</span></div>
+          <div class="skill-name"><span>把複雜需求轉成規格、流程與驗收標準，降低返工與誤解</span></div>
         </div>
         <div class="skill-row">
-          <div class="skill-name"><span>在多方系統整合中，能拆解問題並制定可落地的實作路徑</span></div>
+          <div class="skill-name"><span>兼顧體驗、風險與系統限制，做出能落地的產品決策</span></div>
         </div>
       </div>
     </div>
@@ -914,16 +916,16 @@
       <div class="skill-card-title">專業技能</div>
       <div class="skill-items">
         <div class="skill-row">
-          <div class="skill-name"><span>平台產品設計、會員系統、商家後台</span></div>
+          <div class="skill-name"><span>產品決策 / MVP 定義 / 優先順序管理</span></div>
         </div>
         <div class="skill-row">
-          <div class="skill-name"><span>KYC 驗證、錢包系統、訂單與帳務邏輯</span></div>
+          <div class="skill-name"><span>系統流程設計 / 會員、交易、帳務與金流邏輯</span></div>
         </div>
         <div class="skill-row">
-          <div class="skill-name"><span>權限管理、系統整合（API / 第三方服務）</span></div>
+          <div class="skill-name"><span>跨部門推進 / 設計、開發、QA、營運與第三方整合</span></div>
         </div>
         <div class="skill-row">
-          <div class="skill-name"><span>產品決策（MVP / 功能取捨 / 優先排序）</span></div>
+          <div class="skill-name"><span>AI 工作流優化 / 需求整理、PRD、Jira 與例行溝通</span></div>
         </div>
       </div>
     </div>
