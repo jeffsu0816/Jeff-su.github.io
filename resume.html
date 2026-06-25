@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>蘇紀豪 Jeff Su | PM Lead · Product Owner</title>
+<title>蘇紀豪 Jeff Su | Product Lead · Senior Product Manager</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -16,8 +16,8 @@
     --accent3: #ff6b35;
     --text: #c8e6f0;
     --text-dim: #5a8a9f;
-    --glow: 0 0 20px rgba(0, 200, 255, 0.3);
-    --glow2: 0 0 20px rgba(0, 255, 157, 0.3);
+    --glow: 0 0 16px rgba(0, 200, 255, 0.18);
+    --glow2: 0 0 16px rgba(0, 255, 157, 0.16);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +30,7 @@
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
   }
 
   /* Custom cursor */
@@ -42,6 +42,7 @@
     pointer-events: none;
     transition: transform 0.1s, background 0.2s;
     mix-blend-mode: screen;
+    display: none;
   }
   .cursor-ring {
     width: 36px; height: 36px;
@@ -50,6 +51,7 @@
     position: fixed; z-index: 9998;
     pointer-events: none;
     transition: transform 0.25s ease, width 0.3s, height 0.3s;
+    display: none;
   }
 
   /* Grid background */
@@ -76,12 +78,13 @@
   .scanlines {
     position: fixed; inset: 0; z-index: 1;
     pointer-events: none;
+    opacity: 0.28;
     background: repeating-linear-gradient(
       0deg,
       transparent,
       transparent 3px,
-      rgba(0,0,0,0.08) 3px,
-      rgba(0,0,0,0.08) 4px
+      rgba(0,0,0,0.035) 3px,
+      rgba(0,0,0,0.035) 4px
     );
   }
 
@@ -194,7 +197,7 @@
     line-height: 1.05;
     letter-spacing: 2px;
     color: #fff;
-    text-shadow: 0 0 40px rgba(0,200,255,0.4);
+    text-shadow: 0 0 28px rgba(0,200,255,0.22);
     margin-bottom: 8px;
     white-space: nowrap;
   }
@@ -244,6 +247,32 @@
   }
   .tag:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--glow); }
 
+  /* SUMMARY */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .summary-card {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 22px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    opacity: 0.55;
+  }
+  .summary-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dim);
+  }
+
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn {
     font-family: 'Share Tech Mono', monospace;
@@ -274,7 +303,7 @@
 
   /* HERO STATS */
   .hero-stats {
-    position: absolute; right: 48px; top: 288px;
+    position: absolute; right: 48px; top: 320px;
     transform: none;
     display: flex; flex-direction: column; gap: 24px;
   }
@@ -414,6 +443,46 @@
     letter-spacing: 1px;
   }
 
+  .featured-project {
+    margin-top: 22px;
+    border: 1px solid rgba(0,255,157,0.18);
+    background: rgba(0,255,157,0.025);
+    padding: 20px 22px;
+  }
+  .featured-kicker {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .featured-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    color: var(--text);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .featured-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .featured-value {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-dim);
+  }
+
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .skill-card {
@@ -428,6 +497,20 @@
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(circle at 80% 20%, rgba(0,200,255,0.05) 0%, transparent 60%);
     pointer-events: none;
+  }
+  .chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    border: 1px solid var(--border);
+    background: rgba(0,200,255,0.025);
+    padding: 7px 12px;
   }
   .skill-card:hover { border-color: rgba(0,200,255,0.35); transform: translateY(-4px); box-shadow: var(--glow); }
   .skill-card-icon {
@@ -466,7 +549,7 @@
   }
   @keyframes fillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-  /* AI IMPACT */
+  /* AI WORKFLOW */
   .ai-section {
     border: 1px solid rgba(0,255,157,0.2);
     background: rgba(0,255,157,0.03);
@@ -476,12 +559,12 @@
     margin-top: 80px;
   }
   .ai-section::before {
-    content: 'AI IMPACT';
+    content: 'AI WORKFLOW';
     position: absolute; top: 20px; right: 28px;
     font-family: 'Orbitron', monospace;
     font-size: 60px;
     font-weight: 900;
-    color: rgba(0,255,157,0.05);
+    color: rgba(0,255,157,0.035);
     letter-spacing: 8px;
   }
   .ai-metrics { display: flex; gap: 48px; flex-wrap: wrap; }
@@ -493,7 +576,6 @@
     color: var(--accent2);
     display: block;
     text-shadow: var(--glow2);
-    animation: pulse 2s ease infinite alternate;
   }
   @keyframes pulse { from { opacity: 0.7; } to { opacity: 1; } }
   .ai-metric-label {
@@ -509,6 +591,12 @@
   }
   .ai-desc p { font-size: 14px; line-height: 1.9; color: var(--text-dim); }
   .ai-desc strong { color: var(--accent2); }
+  .ai-use-cases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
 
   /* ABOUT / BIO */
   .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -611,6 +699,32 @@
     letter-spacing: 1px;
   }
 
+  /* OPPORTUNITIES */
+  .opportunities {
+    position: relative; z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 72px;
+  }
+  .opportunities-card {
+    border: 1px solid rgba(0,255,157,0.18);
+    background: rgba(0,255,157,0.025);
+    padding: 28px 32px;
+  }
+  .opportunities-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    color: var(--accent2);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .opportunities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   /* LOADING ANIMATION */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -630,7 +744,7 @@
     4% { clip-path: inset(70% 0 10% 0); transform: translate(4px, 0); }
     6% { clip-path: none; transform: none; }
   }
-  .glitch { animation: glitch 5s infinite; }
+  .glitch { animation: none; }
 
   /* SCROLL indicator */
   .scroll-indicator {
@@ -661,8 +775,14 @@
     nav.scrolled { padding: 16px 24px; }
     .section-inner { padding: 80px 24px; }
     .hero { padding: 100px 24px 80px; flex-direction: column; }
+    .hero-title { display: flex; line-height: 1.7; }
     .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .ai-section { padding: 32px 24px; }
+    .ai-section::before { font-size: 36px; right: 18px; }
     .bio-grid { grid-template-columns: 1fr; }
+    .opportunities { padding: 0 24px 56px; }
     footer { padding: 32px 24px; }
   }
 </style>
@@ -693,42 +813,66 @@
 <div style="position:relative;z-index:2;">
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-label animate delay-1">Platform / FinTech Product Manager</div>
-    <h1 class="animate delay-2 glitch">JEFF SU</h1>
-    <div class="hero-en animate delay-2">JEFF SU</div>
-    <div class="hero-title animate delay-3">產品經理（Platform / FinTech）</div>
+    <div class="hero-label animate delay-1">PRODUCT LEAD · PLATFORM · FINTECH · AI WORKFLOW</div>
+    <h1 class="animate delay-2">JEFF SU</h1>
+    <div class="hero-en animate delay-2">Product Lead / Senior Product Manager</div>
+    <div class="hero-title animate delay-3">Building complex platforms from 0→1,<br>leading cross-functional teams,<br>and scaling delivery through AI automation.</div>
     <p class="hero-desc animate delay-3">
-      具備 <strong style="color:var(--accent)">6 年</strong>產品與專案管理經驗，專注於平台型產品（帳戶、資產、交易系統），涵蓋會員中心、商家後台、KYC、錢包與訂單／帳務邏輯設計。<br><br>
-      擅長在複雜系統與多方整合情境下進行產品決策，將商業需求轉化為可落地的產品架構與流程，並在時程與資源限制下推動產品從 0 到 1 上線。
+      具備 <strong style="color:var(--accent)">6+ 年</strong>軟體產品與專案管理經驗，以及 <strong style="color:var(--accent)">2+ 年</strong> PM Lead 經驗。專注於平台型產品、FinTech、Crypto、合規系統與高複雜度跨部門專案，擅長從 0→1 建立產品與流程，並透過 AI 與自動化提升團隊交付效率。
     </p>
     <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent2);letter-spacing:2px;margin-bottom:14px;">【核心能力】</div>
     <div class="hero-tags animate delay-4">
-      <span class="tag">平台產品設計（會員中心／商家後台）</span>
-      <span class="tag">金流與帳務邏輯（KYC／錢包／訂單）</span>
-      <span class="tag">系統整合（第三方金流、KYC、遊戲商、鏈上服務）</span>
-      <span class="tag">產品決策（MVP 規劃、功能取捨、優先排序）</span>
-      <span class="tag">風險控管（交易一致性、資安與合規）</span>
+      <span class="tag">Product Lead</span>
+      <span class="tag">0→1 Product Builder</span>
+      <span class="tag">Complex Systems PM</span>
+      <span class="tag">Platform / FinTech</span>
+      <span class="tag">AI Workflow Practitioner</span>
     </div>
   </div>
 
   <div class="hero-stats">
     <div class="stat-card">
-      <span class="stat-num">19+</span>
-      <div class="stat-label">年工作經歷</div>
+      <span class="stat-num">6+</span>
+      <div class="stat-label">Product Management</div>
     </div>
     <div class="stat-card">
-      <span class="stat-num">30+</span>
-      <div class="stat-label">跨部門團隊</div>
+      <span class="stat-num">2+</span>
+      <div class="stat-label">PM Leadership</div>
     </div>
     <div class="stat-card">
-      <span class="stat-num">90%</span>
-      <div class="stat-label">AI 流程提升</div>
+      <span class="stat-num">4+</span>
+      <div class="stat-label">Major 0→1 Products</div>
     </div>
   </div>
 
   <div class="scroll-indicator">SCROLL</div>
 </div>
 </div>
+
+<!-- SUMMARY -->
+<section id="summary">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">00</span>
+    <h2 class="section-title">Professional Summary</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <p>Product Lead with 6+ years of experience building complex platform, FinTech, Crypto, and compliance products from 0→1 through scale.</p>
+    </div>
+    <div class="summary-card">
+      <p>Specialized in 0→1 product development, cross-functional leadership, process optimization, and AI-driven workflow automation.</p>
+    </div>
+    <div class="summary-card">
+      <p>Led product teams, established product development processes, and delivered complex systems including payment platforms, NFT exchanges, crypto exchanges, and compliance platforms.</p>
+    </div>
+    <div class="summary-card">
+      <p>Experienced in aligning business goals, operational requirements, and technical constraints to drive scalable product delivery.</p>
+    </div>
+  </div>
+</div>
+</section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
@@ -748,40 +892,20 @@
       </div>
       <div class="exp-company"><span>鑫鼎鑽科技有限公司</span> · 電腦軟體服務業 · 台北市南港區</div>
       <ul class="exp-achievements">
-        <li>2024/09~2025/05 擔任 Product Owner → <strong>2025/06 晉升 PM Lead</strong></li>
+        <li>2024/09–2025/05 擔任 Product Owner，2025/06 晉升 PM Lead，負責產品流程、團隊協作與跨部門推進</li>
+        <li>管理 <strong>7 位 PM</strong>，建立需求評估、優先排序與協作機制，協助團隊聚焦高影響項目</li>
+        <li>擔任大型平台前後端重構專案 PO，協調設計、開發、QA、AM 與支付團隊，推動產品架構與 UI/UX 優化</li>
+        <li>建立需求文件、驗收標準與跨部門溝通節點，降低需求落差與溝通成本，提升交付穩定性</li>
+        <li>導入 Claude、ChatGPT、Jira Automation 與 n8n 至 PM 日常流程，應用於需求整理、建票、Release 公告、Hotfix 公告與站會同步</li>
+        <li>透過 AI Workflow 與流程優化，整體效率提升約 <strong>20–30%</strong>，部分重複性流程提升 <strong>80–90%</strong></li>
       </ul>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:20px;">
-        <div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;">✦ 核心成果</div>
-          <ul class="exp-achievements">
-            <li>管理 <strong>7 位 PM</strong>，建立需求評估與決策機制（impact / effort / risk），讓團隊聚焦高影響項目</li>
-            <li>重整產品優先級與跨部門流程，先處理高影響需求，讓整體交付更穩定（約 +10~20%）</li>
-            <li>調整註冊、儲值與核心使用流程，重新排序需求與範圍，讓轉換更穩定（約 +10~20%）</li>
-            <li>導入 AI 工具於需求整理、PRD 撰寫、Jira 管理與例行溝通，開發效率提升約 <strong>30%</strong></li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:10px;">✦ 決策與推進</div>
-          <ul class="exp-achievements">
-            <li>先釐清開發、QA、設計、AM 與支付團隊的高風險斷點，再建立協作節點與驗收標準，讓溝通往返減少（約 20~30%）</li>
-            <li>在時程與資源限制下主導 MVP 與優先順序，避免團隊把時間花在低影響需求</li>
-            <li>在需求不明確情況下，先定義核心流程與優先順序，再轉成可執行規格，讓方案能穩定被設計、開發與落地</li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--accent2);letter-spacing:2px;margin-bottom:10px;">✦ AI 導入與產品流程優化</div>
-          <ul class="exp-achievements">
-            <li>導入 Claude 與流程自動化，將 AI 落到需求整理、PRD、Jira 與例行溝通，讓決策與協作更快成形</li>
-            <li>把 AI 工作流接進日常產品流程，整體效率提升約 <strong>30%</strong>，部分流程達 <strong>80~90%</strong>，也讓跨部門同步更順</li>
-          </ul>
-        </div>
-      </div>
       <div class="exp-highlight">
-        <span class="exp-tag">Product Strategy</span>
-        <span class="exp-tag">UI/UX</span>
-        <span class="exp-tag">AI Automation</span>
-        <span class="exp-tag">Team Management</span>
-        <span class="exp-tag">Scrum</span>
+        <span class="exp-tag">Product Lead</span>
+        <span class="exp-tag">Product Operations</span>
+        <span class="exp-tag">AI Workflow</span>
+        <span class="exp-tag">Jira Automation</span>
+        <span class="exp-tag">n8n</span>
+        <span class="exp-tag">Cross-functional Leadership</span>
       </div>
     </div>
 
@@ -812,17 +936,38 @@
       </div>
       <div class="exp-company"><span>羅卡斯科技股份有限公司</span> · 電腦軟體服務業 · 台北市大同區</div>
       <ul class="exp-achievements">
-        <li>從 0 到 1 建立 NFT 交易所，先定義會員、交易與資產核心流程，產品上線後創造<strong>每月近 100 萬元利潤</strong>，並持續優化交易與資產流程以支撐成長</li>
-        <li>帶領 <strong>30+ 跨部門團隊</strong>，建立需求評估與風險決策機制，讓開發資源集中在高影響項目</li>
-        <li>先釐清高風險交易、錢包與帳務流程，再決定開發範圍與上線順序，降低營運與例外處理成本（約 10~20%）</li>
-        <li>在需求不明確情況下，先定義核心流程與優先順序，再指導新人 PM 轉成規格與驗收標準，讓溝通落差減少（約 20~30%）</li>
-        <li>評估 GameFi、社群平台與 AI 交友新方向，判斷產品延伸與投入順序</li>
+        <li>主導 NFT 交易所 0→1 與 1→10 產品規劃，涵蓋會員、商家、代理、KYC、支付、錢包、上架、訂單與交易流程</li>
+        <li>產品上線後創造每月近百萬元利潤，並持續優化交易、資產與營運流程以支撐成長</li>
+        <li>參與加密貨幣交易所 0→1，涵蓋會員系統、鏈上充值提領、節點監聽、訂單與交易相關流程</li>
+        <li>帶領 <strong>30+ 跨部門成員</strong>協作，包含開發、設計、QA、營運、客服與管理層，整合多方需求並推動落地</li>
+        <li>建立需求拆解、優先排序、驗收標準與新人 PM 指導流程，降低需求落差與返工風險</li>
+        <li>評估 GameFi、社群平台與 AI 交友等新產品方向，協助判斷產品延伸與投入順序</li>
       </ul>
+      <div class="featured-project">
+        <div class="featured-kicker">Featured Project</div>
+        <div class="featured-title">NFT Exchange 0→1</div>
+        <div class="featured-grid">
+          <div>
+            <div class="featured-label">Role</div>
+            <div class="featured-value">PM Lead</div>
+          </div>
+          <div>
+            <div class="featured-label">Scope</div>
+            <div class="featured-value">Membership / KYC / Wallet / Merchant / NFT Trading / Order Flow</div>
+          </div>
+          <div>
+            <div class="featured-label">Result</div>
+            <div class="featured-value">0→1 Launch / Monthly Profit Near NT$1M / Multi-role Platform Architecture</div>
+          </div>
+        </div>
+      </div>
       <div class="exp-highlight">
         <span class="exp-tag">NFT Exchange</span>
+        <span class="exp-tag">Crypto Exchange</span>
         <span class="exp-tag">Product 0→1</span>
-        <span class="exp-tag">Team Lead 13+</span>
-        <span class="exp-tag">GameFi</span>
+        <span class="exp-tag">Platform Architecture</span>
+        <span class="exp-tag">PM Lead</span>
+        <span class="exp-tag">Stakeholder Management</span>
       </div>
     </div>
 
@@ -834,16 +979,19 @@
       </div>
       <div class="exp-company"><span>萬達資訊服務有限公司</span> · 電腦軟體服務業 · 台北市中正區</div>
       <ul class="exp-achievements">
-        <li>從 0 到 1 規劃<strong>金流系統產品</strong>，先定義註冊、儲值、訂單與帳務邏輯，產品上線後支撐多品牌並帶來<strong>每月數百萬元營收</strong></li>
-        <li>帶領近 20 人團隊，建立功能優先順序與風險評估機制，讓高複雜度專案能穩定推進</li>
-        <li>在需求不明確情況下，先定義註冊、儲值與帳務核心流程，再轉成可執行規格，讓開發與驗收節奏更一致</li>
-        <li>先釐清中國市場使用情境與高風險流程，再決定 App 與 H5 雙版本範圍，加快產品落地速度（約 10~20%）</li>
+        <li>從 0→1 規劃金流系統產品，涵蓋註冊、儲值、訂單、帳務邏輯、費率、反傭與風控流程</li>
+        <li>規劃 1 個前台與 5 個後台系統，包含總控、商戶、商戶代理、用戶與用戶代理等多角色使用情境</li>
+        <li>產品上線後支撐多品牌營運，並帶來每月數百萬元營收</li>
+        <li>協調近 20 人跨部門團隊，建立功能優先順序與風險評估機制，讓高複雜度專案穩定推進</li>
+        <li>在需求不明確情況下，先定義金流、帳務與對帳核心流程，再轉成可執行規格與驗收標準</li>
       </ul>
       <div class="exp-highlight">
-        <span class="exp-tag">Payment System</span>
-        <span class="exp-tag">Axure RP</span>
-        <span class="exp-tag">Wireframe</span>
-        <span class="exp-tag">China Market</span>
+        <span class="exp-tag">Payment Platform</span>
+        <span class="exp-tag">FinTech</span>
+        <span class="exp-tag">Product 0→1</span>
+        <span class="exp-tag">Multi-role Backend</span>
+        <span class="exp-tag">Risk Control</span>
+        <span class="exp-tag">Accounting Flow</span>
       </div>
     </div>
 
@@ -862,20 +1010,31 @@
     </div>
   </div>
 
-  <!-- AI IMPACT -->
+  <!-- AI WORKFLOW -->
   <div class="ai-section">
-    <div class="section-num" style="margin-bottom:24px;">✦ AI INTEGRATION RESULTS</div>
+    <div class="section-num" style="margin-bottom:24px;">✦ AI Workflow & Automation</div>
     <div class="ai-metrics">
       <div class="ai-metric">
         <span class="ai-metric-num">30%</span>
-        <div class="ai-metric-label">整體效率提升</div>
+        <div class="ai-metric-label">Overall Efficiency Improvement</div>
       </div>
       <div class="ai-metric">
-        <span class="ai-metric-num">90%</span>
-        <div class="ai-metric-label">部分流程最高提升</div>
+        <span class="ai-metric-num">80–90%</span>
+        <div class="ai-metric-label">Improvement in Selected Repetitive Workflows</div>
       </div>
       <div class="ai-desc">
-        <p>近期導入 <strong>Claude AI</strong> 結合流程自動化，落在需求整理、PRD 撰寫、Jira 管理、票務同步與例行溝通，整體效率提升約 <strong>30%</strong>，部分流程達 <strong>80~90%</strong>，也讓產品決策與跨部門協作更快落地。</p>
+        <p>Implemented AI-driven workflows across product teams using <strong>Claude, ChatGPT, Jira Automation, and n8n</strong>.</p>
+        <p>Applied AI to requirement drafting, ticket creation, release management, workflow synchronization, and team collaboration, enabling faster delivery and reducing repetitive operational work.</p>
+        <div class="ai-use-cases">
+          <span class="chip">AI-assisted PRD &amp; Requirement Drafting</span>
+          <span class="chip">Jira Ticket Template &amp; Automation</span>
+          <span class="chip">Release / Hotfix Announcement</span>
+          <span class="chip">Daily Stand-up Summary</span>
+          <span class="chip">Jira Status Sync</span>
+          <span class="chip">n8n Workflow Automation</span>
+          <span class="chip">Figma Spec Review with Claude</span>
+          <span class="chip">Google Sheet Workflow Processing</span>
+        </div>
       </div>
     </div>
   </div>
@@ -887,46 +1046,42 @@
 <div class="section-inner">
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">專業技能與產品決策</h2>
+    <h2 class="section-title">Core Expertise & Tools</h2>
     <div class="section-line"></div>
   </div>
 
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-card-icon">🧠</div>
-      <div class="skill-card-title">產品決策經驗</div>
-      <div class="skill-items">
-        <div class="skill-row">
-          <div class="skill-name"><span>在不明確需求下快速判斷真正瓶頸，轉成可執行產品方案</span></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-name"><span>主導 MVP、功能取捨與優先順序，讓資源集中在高影響項目</span></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-name"><span>把複雜需求轉成規格、流程與驗收標準，降低返工與誤解</span></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-name"><span>兼顧體驗、風險與系統限制，做出能落地的產品決策</span></div>
-        </div>
+      <div class="skill-card-title">Core Expertise</div>
+      <div class="chip-grid">
+        <span class="chip">Product Strategy</span>
+        <span class="chip">0→1 Product Development</span>
+        <span class="chip">Product Operations</span>
+        <span class="chip">Platform Product Management</span>
+        <span class="chip">FinTech / Payment Flow</span>
+        <span class="chip">Crypto / NFT Product Flow</span>
+        <span class="chip">Stakeholder Management</span>
+        <span class="chip">Cross-functional Leadership</span>
+        <span class="chip">Process Optimization</span>
+        <span class="chip">AI Workflow Automation</span>
       </div>
     </div>
 
     <div class="skill-card">
       <div class="skill-card-icon">🛠️</div>
-      <div class="skill-card-title">專業技能</div>
-      <div class="skill-items">
-        <div class="skill-row">
-          <div class="skill-name"><span>產品決策 / MVP 定義 / 優先順序管理</span></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-name"><span>系統流程設計 / 會員、交易、帳務與金流邏輯</span></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-name"><span>跨部門推進 / 設計、開發、QA、營運與第三方整合</span></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-name"><span>AI 工作流優化 / 需求整理、PRD、Jira 與例行溝通</span></div>
-        </div>
+      <div class="skill-card-title">Tools</div>
+      <div class="chip-grid">
+        <span class="chip">Jira</span>
+        <span class="chip">Confluence</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Axure RP</span>
+        <span class="chip">Claude</span>
+        <span class="chip">ChatGPT</span>
+        <span class="chip">n8n</span>
+        <span class="chip">Google Workspace</span>
+        <span class="chip">Slack</span>
+        <span class="chip">GitHub</span>
       </div>
     </div>
   </div>
@@ -963,32 +1118,24 @@
 </div>
 </section>
 
-<!-- NOTE -->
-<section id="note">
-<div class="section-inner">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">補充說明</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="skill-card">
-    <div class="skill-items">
-      <div class="skill-row">
-        <div class="skill-name"><span>主要經驗集中於 B2B 平台產品，雖較少直接使用數據指標，但能透過需求分析、使用情境與系統行為判斷產品方向，並進行功能取捨與優先排序。</span></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name"><span>擅長在不確定需求與複雜系統中，做出可落地的產品決策。</span></div>
-      </div>
+<!-- OPPORTUNITIES -->
+<div class="opportunities">
+  <div class="opportunities-card">
+    <div class="opportunities-title">Open to Opportunities</div>
+    <div class="opportunities-list">
+      <span class="chip">Product Lead</span>
+      <span class="chip">Senior Product Manager</span>
+      <span class="chip">AI Product Manager</span>
+      <span class="chip">FinTech Product Manager</span>
+      <span class="chip">Platform Product Manager</span>
     </div>
   </div>
 </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">JEFF SU · 蘇紀豪</div>
-  <div class="footer-note">PM Lead · Product Owner · 19+ Years Experience</div>
+  <div class="footer-logo">JEFF SU</div>
+  <div class="footer-note">Product Lead / Senior Product Manager · Platform / FinTech / AI Workflow</div>
 </footer>
 
 <script>
@@ -997,30 +1144,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Custom cursor ──
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
-  let mx = -200, my = -200, rx = -200, ry = -200;
-  cursor.style.opacity = '0';
-  ring.style.opacity = '0';
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.opacity = '1';
-    ring.style.opacity = '1';
-  });
-
-  (function animCursor() {
-    cursor.style.left = mx - 6 + 'px';
-    cursor.style.top  = my - 6 + 'px';
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx - 18 + 'px';
-    ring.style.top  = ry - 18 + 'px';
-    requestAnimationFrame(animCursor);
-  })();
-
-  document.querySelectorAll('a, .btn, .exp-item, .skill-card, .contact-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; cursor.style.background = 'var(--accent)'; });
-    el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; cursor.style.background = 'transparent'; });
-  });
+  if (cursor && ring && window.matchMedia('(pointer: fine)').matches) {
+    cursor.remove();
+    ring.remove();
+  }
 
   // ── Scroll-in animations ──
   const obs = new IntersectionObserver(entries => {
@@ -1090,8 +1217,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })(performance.now());
   }
   const statNums = document.querySelectorAll('.stat-num');
-  const counterTargets  = [19, 30, 90];
-  const counterSuffixes = ['+', '+', '%'];
+  const counterTargets  = [6, 2, 4];
+  const counterSuffixes = ['+', '+', '+'];
   let countersDone = false;
   const counterObs = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !countersDone) {
