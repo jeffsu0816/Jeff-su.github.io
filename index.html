@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Jeff Su — Product Manager</title>
+<title>Jeff Su — Product Lead</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;family=Share+Tech+Mono&amp;family=Noto+Sans+TC:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Orbitron:wght@400;500;700;900&amp;family=Share+Tech+Mono&amp;family=Noto+Sans+TC:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,9 +21,9 @@
     --cyan:        #00c8ff;
     --green:       #00ff9d;
     --orange:      #ff6b35;
-    --cyan-glow:   0 0 20px rgba(0, 200, 255, 0.3);
-    --green-glow:  0 0 20px rgba(0, 255, 157, 0.3);
-    --font-head:   'Orbitron', sans-serif;
+    --cyan-glow:   0 0 12px rgba(0, 200, 255, 0.16);
+    --green-glow:  0 0 10px rgba(0, 255, 157, 0.14);
+    --font-head:   'Space Grotesk', sans-serif;
     --font-mono:   'Share Tech Mono', monospace;
     --font-body:   'Noto Sans TC', sans-serif;
   }
@@ -48,8 +48,8 @@
       0deg,
       transparent,
       transparent 2px,
-      rgba(0,200,255,0.013) 2px,
-      rgba(0,200,255,0.013) 4px
+      rgba(0,200,255,0.004) 2px,
+      rgba(0,200,255,0.004) 4px
     );
     pointer-events: none;
     z-index: 0;
@@ -175,8 +175,8 @@
     font-weight: 900;
     line-height: 1.12;
     color: var(--cyan);
-    text-shadow: var(--cyan-glow);
-    letter-spacing: 0.04em;
+    text-shadow: 0 0 10px rgba(0, 200, 255, 0.12);
+    letter-spacing: 0.02em;
     margin-bottom: 0.5rem;
   }
   h1 .green {
@@ -281,8 +281,8 @@
     font-size: clamp(1.3rem, 3.2vw, 1.9rem);
     font-weight: 700;
     color: var(--cyan);
-    text-shadow: 0 0 14px rgba(0,200,255,0.22);
-    letter-spacing: 0.07em;
+    text-shadow: 0 0 8px rgba(0,200,255,0.12);
+    letter-spacing: 0.04em;
     line-height: 1.2;
     margin-bottom: 2.5rem;
   }
@@ -354,6 +354,33 @@
     color: var(--cyan);
     opacity: 0.5;
     letter-spacing: 0.04em;
+  }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .highlight-card {
+    background: var(--bg-card);
+    padding: 1.6rem 1.8rem;
+    transition: background 0.2s;
+  }
+  .highlight-card:hover { background: rgba(0,200,255,0.06); }
+  .highlight-title {
+    font-family: var(--font-head);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.45rem;
+  }
+  .highlight-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
   }
   .contact-open {
     font-family: var(--font-mono);
@@ -438,6 +465,22 @@
     line-height: 1.65;
     display: flex;
     align-items: center;
+  }
+  .opportunity-roles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0 0 2rem;
+  }
+  .role-chip {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
   }
 
   /* ── ABOUT ── */
@@ -576,6 +619,7 @@
     .nav-links { gap: 1.4rem; }
     h1 { font-size: 2rem; }
     .hero-bullets { grid-template-columns: 1fr; }
+    .highlights-grid { grid-template-columns: 1fr; }
     .do-grid { grid-template-columns: 1fr; }
     .strength-item { grid-template-columns: 1fr; }
     .strength-key { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; }
@@ -598,97 +642,109 @@
 <main>
 <!-- HERO -->
 <section id="hero">
-<div class="hero-eyebrow fade-up d1">PRODUCT MANAGER · PLATFORM / FINTECH / B2B SYSTEMS</div>
-<h1 class="fade-up d2">平台型產品經理<br/><span class="green">Platform PM｜FinTech｜B2B Systems</span></h1>
-<div class="hero-role fade-up d2">// 我專注在會員、交易、金流與後台系統，把複雜流程整理成可落地、可擴展的產品方案。<span class="cursor"></span></div>
+<div class="hero-eyebrow fade-up d1">PRODUCT LEAD · SENIOR PRODUCT MANAGER</div>
+<h1 class="fade-up d2">Jeff Su<br/><span class="green">Product Lead</span></h1>
+<div class="hero-role fade-up d2">// Senior Product Manager | AI Workflow | FinTech / Platform Product<span class="cursor"></span></div>
 <p class="hero-sub fade-up d3">
-      過去我做過 0→1 產品上線，也接手過既有系統的重整與優化。<br/>
-      在實際專案中，我優化註冊與儲值流程，降低流程中斷，並讓核心轉換率明顯提升（約 +10~20%）。<br/>
-      相比「做了多少功能」，我更在意的是：這個產品決策，實際帶來了什麼影響。
+      我是一位具備 6+ 年軟體產品與專案管理經驗、3+ 年 PM Lead 經驗的產品經理，擅長在高複雜度環境中，從 0→1 建立產品與流程，並透過 AI 與自動化提升團隊交付效率。
     </p>
-<div class="hero-bullets fade-up d4">
-<div class="hero-bullet">規劃平台型產品：會員中心、商家後台、資產與交易系統</div>
-<div class="hero-bullet">設計核心流程：KYC、錢包、訂單、帳務與金流邏輯</div>
-<div class="hero-bullet">做產品取捨：定義 MVP、排優先級、控制開發範圍</div>
-<div class="hero-bullet">導入 AI 與流程優化：提升需求整理、溝通與交付效率</div>
-</div>
 <div class="btn-group fade-up d5">
-<a class="btn btn-primary" href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">VIEW_RESUME →</a>
-<a class="btn btn-green" href="https://jeffsu0816.github.io/Jeff-su.github.io/portfolio">VIEW_PORTFOLIO →</a>
+<a class="btn btn-primary" href="https://jeffsu0816.github.io/Jeff-su.github.io/portfolio">VIEW MY WORK →</a>
+<a class="btn btn-green" href="#contact">CONTACT ME →</a>
+</div>
+</section>
+<!-- KEY HIGHLIGHTS -->
+<section id="highlights">
+<div class="section-label">KEY HIGHLIGHTS</div>
+<h2>KEY HIGHLIGHTS</h2>
+<div class="highlights-grid">
+<div class="highlight-card">
+<div class="highlight-title">6+ Years Product Experience</div>
+<div class="highlight-desc">軟體產品、平台型系統與跨部門專案管理經驗。</div>
+</div>
+<div class="highlight-card">
+<div class="highlight-title">3+ Years PM Leadership</div>
+<div class="highlight-desc">管理 7 位 PM，建立團隊流程、績效制度與協作規範。</div>
+</div>
+<div class="highlight-card">
+<div class="highlight-title">4+ Major 0→1 Products</div>
+<div class="highlight-desc">參與金流平台、NFT 交易所、加密貨幣交易所、合規平台等產品建置。</div>
+</div>
+<div class="highlight-card">
+<div class="highlight-title">AI Workflow &amp; Automation</div>
+<div class="highlight-desc">導入 Claude、ChatGPT、Jira Automation、n8n 等工具，提升團隊效率。</div>
+</div>
 </div>
 </section>
 <!-- WHAT I DO -->
 <section id="what-i-do">
-<div class="section-label">FOCUS AREAS</div>
+<div class="section-label">CAPABILITIES</div>
 <h2>WHAT I DO</h2>
 <p class="intro-text">
-      我主要處理「流程複雜、角色多、系統彼此牽動」的產品問題，特別是在轉換卡關、流程中斷或跨系統不一致的情境下，協助團隊找出真正的瓶頸。<br/>我的工作不是單純把需求寫成規格，而是先釐清問題、判斷優先順序，再把方案推到可以被設計、開發、測試與營運落地。
+      我主要處理高複雜度產品、跨系統流程與多方利害關係人協作的問題。重點不只是把需求整理出來，而是把商業目標、系統限制與團隊交付節奏整合成能真正落地的產品方案。
     </p>
-<div class="do-list">
-<div class="do-list-item">
-<span class="do-num">01</span>
-<div class="do-text-wrap"><span class="do-text">平台型產品規劃</span><span class="do-sub">建立會員中心、商家後台與資產交易流程，讓帳戶、權限、訂單與資料流能穩定串接。</span></div>
+<div class="do-grid">
+<div class="do-item">
+<div class="do-item-num">01</div>
+<div class="do-item-title">Complex Product Management</div>
+<div class="do-item-desc">將複雜的商業需求、系統流程與利害關係人需求，拆解成可執行的產品規格與開發計畫。</div>
 </div>
-<div class="do-list-item">
-<span class="do-num">02</span>
-<div class="do-text-wrap"><span class="do-text">金流與帳務邏輯</span><span class="do-sub">規劃 KYC、錢包、訂單與帳務流程，在使用體驗、風險控管與資料一致性之間做取捨。</span></div>
+<div class="do-item">
+<div class="do-item-num">02</div>
+<div class="do-item-title">0→1 Product Building</div>
+<div class="do-item-desc">從需求探索、流程設計、PRD 撰寫、跨部門協作到產品上線，推動新產品從概念落地。</div>
 </div>
-<div class="do-list-item">
-<span class="do-num">03</span>
-<div class="do-text-wrap"><span class="do-text">多系統整合</span><span class="do-sub">串接第三方 KYC、金流、鏈上與分析工具，降低跨系統斷點，讓產品流程能完整運作。</span></div>
+<div class="do-item">
+<div class="do-item-num">03</div>
+<div class="do-item-title">Process Optimization</div>
+<div class="do-item-desc">建立產品開發流程、跨部門溝通機制、驗收標準與交付節奏，提升團隊協作效率與品質。</div>
 </div>
-<div class="do-list-item">
-<span class="do-num">04</span>
-<div class="do-text-wrap"><span class="do-text">產品落地與範圍控制</span><span class="do-sub">把模糊需求拆成可執行方案，定義 MVP 與優先順序，避免團隊把時間花在低影響功能上。</span></div>
+<div class="do-item">
+<div class="do-item-num">04</div>
+<div class="do-item-title">AI &amp; Automation</div>
+<div class="do-item-desc">使用 Claude、ChatGPT、n8n、Jira Automation 等工具，將重複性工作流程自動化，提升 PM 與團隊產出效率。</div>
 </div>
 </div>
 </section>
-<!-- STRENGTHS -->
+<!-- FEATURED EXPERIENCE -->
 <section id="strengths">
-<div class="section-label">CORE COMPETENCIES</div>
-<h2>SELECTED STRENGTHS</h2>
+<div class="section-label">SELECTED WORK</div>
+<h2>FEATURED EXPERIENCE</h2>
 <div class="strengths-list">
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">Product Decision Making</div>
-<div class="strength-zh">產品決策</div>
+<div class="strength-en">Payment Platform</div>
+<div class="strength-zh">金流平台</div>
 </div>
-<div class="strength-desc">能在需求、時程與開發資源限制下，判斷什麼該先做、什麼該延後，並定義可落地的 MVP。</div>
-</div>
-<div class="strength-item">
-<div class="strength-key">
-<div class="strength-en">Requirement Structuring</div>
-<div class="strength-zh">需求結構化</div>
-</div>
-<div class="strength-desc">將模糊需求整理成清楚的使用流程、邏輯規則與驗收標準，降低溝通成本與返工機率。</div>
+<div class="strength-desc">規劃金流平台與多角色後台系統，涵蓋商戶、代理、用戶、費率、反傭、風控與對帳流程。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">Platform &amp; System Thinking</div>
-<div class="strength-zh">平台與系統思維</div>
+<div class="strength-en">NFT Exchange</div>
+<div class="strength-zh">NFT 交易所</div>
 </div>
-<div class="strength-desc">理解會員、交易、資產、帳務與後台之間的關聯，能設計可擴充、可維護的產品流程。</div>
-</div>
-<div class="strength-item">
-<div class="strength-key">
-<div class="strength-en">Transaction &amp; Risk Logic</div>
-<div class="strength-zh">交易與風控邏輯</div>
-</div>
-<div class="strength-desc">熟悉 KYC、錢包、訂單、帳務與金流情境，能在體驗與風險之間做合理取捨。</div>
+<div class="strength-desc">參與 NFT 交易所 0→1 與 1→10，涵蓋會員、商家、代理、KYC、支付、錢包與交易流程。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">Cross-functional Delivery</div>
-<div class="strength-zh">跨部門推進</div>
+<div class="strength-en">Crypto Exchange</div>
+<div class="strength-zh">加密貨幣交易所</div>
 </div>
-<div class="strength-desc">能協調設計、開發、QA、營運、AM 與第三方廠商，讓需求不只停在文件，而是穩定上線。</div>
+<div class="strength-desc">參與加密貨幣交易所 0→1，涵蓋會員系統、鏈上充值提領、節點監聽、訂單與交易相關流程。</div>
 </div>
 <div class="strength-item">
 <div class="strength-key">
-<div class="strength-en">AI-Driven Workflow</div>
-<div class="strength-zh">AI 流程優化</div>
+<div class="strength-en">Compliance Platform</div>
+<div class="strength-zh">合規平台</div>
 </div>
-<div class="strength-desc">導入 AI 協助需求整理、文件產出、票務管理與例行溝通，提升產品與專案協作效率。</div>
+<div class="strength-desc">參與菲律賓合規平台 0→1，負責多項因應法規與營運需求的產品流程規劃與調整。</div>
+</div>
+<div class="strength-item">
+<div class="strength-key">
+<div class="strength-en">AI Workflow Implementation</div>
+<div class="strength-zh">AI 工作流導入</div>
+</div>
+<div class="strength-desc">導入 Claude、ChatGPT、Jira Automation 與 n8n，應用於建票、Release 公告、Hotfix 公告、每日站會、Jira 狀態同步與跨部門提醒。</div>
 </div>
 </div>
 </section>
@@ -699,13 +755,13 @@
 <div class="about-layout">
 <div class="about-text">
 <p>
-          我有 <strong>6 年以上產品與專案管理經驗</strong>，主要負責平台型產品、FinTech 流程與 B2B 系統。過去參與多個 0→1 產品規劃與上線，也接手過既有產品的架構重整、流程優化與跨部門協作，處理過註冊、KYC、錢包、訂單、帳務與金流等核心流程。
+          我有 <strong>6+ 年軟體產品與專案管理經驗</strong>，以及 <strong>3+ 年 PM Lead 經驗</strong>。工作主軸集中在平台型產品、FinTech 流程、合規需求與多方角色協作的高複雜度場景。
         </p>
 <p>
-          我擅長在需求很多、資源有限、系統限制明確的情境下，協助團隊釐清真正該解的問題，主導需求取捨與優先順序，並把產品方向轉成可執行的規格、流程與驗收標準。
+          我擅長從 0→1 建立產品與流程，也擅長在既有產品持續演進時，重新整理優先順序、交付節奏與團隊協作方式，讓需求不只停在規劃，而是能穩定推進到落地。
         </p>
 <p>
-          近期也持續導入 AI 到產品流程中，用於需求整理、PRD 撰寫、Jira 票務、自動化檢查與跨部門溝通，提升整體交付效率。
+          近年也持續把 AI 與自動化導入 PM 與跨部門工作流，包含需求整理、PRD 撰寫、Jira 管理、公告同步與站會節奏，讓團隊把更多時間放在高價值決策與交付上。
         </p>
 </div>
 <div class="about-stats">
@@ -714,27 +770,34 @@
 <div class="stat-label">YEARS IN PRODUCT / PROJECT MANAGEMENT</div>
 </div>
 <div class="stat-item">
-<div class="stat-num">30+</div>
-<div class="stat-label">CROSS-FUNCTIONAL STAKEHOLDERS</div>
+<div class="stat-num">3+</div>
+<div class="stat-label">YEARS IN PM LEADERSHIP</div>
 </div>
 <div class="stat-item">
-<div class="stat-num">20%+</div>
-<div class="stat-label">EFFICIENCY GAIN VIA AI WORKFLOW</div>
+<div class="stat-num">4+</div>
+<div class="stat-label">MAJOR 0→1 PRODUCTS</div>
 </div>
 <div class="stat-item">
-<div class="stat-num">0→1</div>
-<div class="stat-label">PRODUCTS LAUNCHED</div>
+<div class="stat-num">AI</div>
+<div class="stat-label">WORKFLOW &amp; AUTOMATION ENABLEMENT</div>
 </div>
 </div>
 </div>
 </section>
 <!-- CONTACT -->
 <section id="contact">
-<div class="section-label">GET IN TOUCH</div>
-<h2>LET'S CONNECT</h2>
-<p class="contact-sub">// 歡迎交流平台產品、FinTech、B2B 系統與 AI 工作流相關機會</p>
-<p class="contact-open">目前開放：Product Manager / Platform PM / FinTech PM 相關機會</p>
+<div class="section-label">OPPORTUNITIES</div>
+<h2>OPEN TO NEW OPPORTUNITIES</h2>
+<p class="contact-sub">I’m currently exploring new opportunities where I can help teams build complex products, improve workflows, and scale product delivery with AI and automation.</p>
+<div class="opportunity-roles">
+<span class="role-chip">Product Lead</span>
+<span class="role-chip">Senior Product Manager</span>
+<span class="role-chip">AI Product Manager</span>
+<span class="role-chip">FinTech Product Manager</span>
+<span class="role-chip">Platform Product Manager</span>
+</div>
 <div class="contact-links">
+<a class="btn btn-primary" href="mailto:suzuki5403@gmail.com">LET'S CONNECT →</a>
 <a class="contact-link" href="mailto:suzuki5403@gmail.com">
 <svg fill="none" height="14" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="14"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m2 7 10 7 10-7"></path></svg>
         suzuki5403@gmail.com
@@ -747,7 +810,7 @@
 </section>
 </main>
 <footer>
-  JEFF_SU  ·  PRODUCT MANAGER  ·  PLATFORM / FINTECH / B2B  ·  TAIPEI
+  JEFF_SU  ·  PRODUCT LEAD / SENIOR PRODUCT MANAGER  ·  PLATFORM / FINTECH / AI WORKFLOW  ·  TAIPEI
 </footer>
 <script>
 document.querySelectorAll('.nav-links a, .nav-logo').forEach(function(link) {
