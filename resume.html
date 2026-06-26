@@ -785,6 +785,134 @@
     .opportunities { padding: 0 24px 56px; }
     footer { padding: 32px 24px; }
   }
+
+  /* Unified visual polish across homepage / portfolio / resume */
+  :root {
+    --bg: #070c12;
+    --bg2: #0b121d;
+    --panel: rgba(34, 199, 238, 0.045);
+    --border: rgba(148, 211, 226, 0.16);
+    --accent: #22c7ee;
+    --accent2: #38d98b;
+    --text: #d7e8ee;
+    --text-dim: #86a8b5;
+    --glow: 0 0 10px rgba(34, 199, 238, 0.12);
+    --glow2: 0 0 8px rgba(56, 217, 139, 0.1);
+  }
+
+  body {
+    font-family: 'Noto Sans TC', 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(34,199,238,0.055), transparent 42%),
+      var(--bg);
+  }
+
+  body::before {
+    background-image:
+      linear-gradient(rgba(34,199,238,0.014) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,199,238,0.014) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  body::after {
+    background: radial-gradient(ellipse 80% 56% at 50% 0%, rgba(34,199,238,0.045) 0%, transparent 70%);
+  }
+
+  .scanlines {
+    display: none;
+  }
+
+  nav,
+  nav.scrolled,
+  .nav-links {
+    background: rgba(7,12,18,0.93);
+    border-color: var(--border);
+  }
+
+  .nav-logo,
+  .nav-links a,
+  .hero h1,
+  .section-title,
+  .exp-role,
+  .stat-num,
+  .featured-title,
+  .skill-card-title,
+  .ai-stat,
+  .edu-school,
+  .footer-logo,
+  .opportunities-card h3 {
+    font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+    letter-spacing: 0;
+    text-shadow: none;
+  }
+
+  .hero-label,
+  .hero-en,
+  .hero-title,
+  .tag,
+  .btn,
+  .section-num,
+  .exp-company,
+  .skill-name,
+  .ai-label,
+  .timeline-label,
+  .footer-note {
+    font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+    letter-spacing: 0.08em;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5.8vw, 68px);
+    color: var(--text);
+  }
+
+  .section-title {
+    font-size: clamp(21px, 2.6vw, 28px);
+  }
+
+  .hero-desc,
+  .exp-desc,
+  .exp-achievements li,
+  .skill-name,
+  .bio-text,
+  .ai-desc p,
+  .contact-val {
+    color: var(--text-dim);
+  }
+
+  .summary-card,
+  .stat-card,
+  .exp-item,
+  .featured-card,
+  .skill-card,
+  .ai-section,
+  .edu-item,
+  .contact-card,
+  .opportunities-card {
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .summary-card:hover,
+  .exp-item:hover,
+  .skill-card:hover,
+  .contact-card:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+  }
+
+  .section-inner {
+    padding: 6.5rem 48px;
+  }
+
+  @media (max-width: 900px) {
+    nav,
+    nav.scrolled { padding: 0 24px; height: 64px; }
+    .section-inner { padding: 4.5rem 1.5rem; }
+    .hero { padding: 96px 24px 72px; }
+    .nav-links { top: 64px; }
+  }
 </style>
 </head>
 <body>
@@ -816,11 +944,11 @@
     <div class="hero-label animate delay-1">PRODUCT LEAD · PLATFORM · FINTECH · AI WORKFLOW</div>
     <h1 class="animate delay-2">JEFF SU</h1>
     <div class="hero-en animate delay-2">Product Lead / Senior Product Manager</div>
-    <div class="hero-title animate delay-3">Building complex platforms from 0→1,<br>leading cross-functional teams,<br>and scaling delivery through AI automation.</div>
+    <div class="hero-title animate delay-3">從 0→1 建立複雜平台，<br>帶領跨部門團隊，<br>並透過 AI 自動化提升交付效率。</div>
     <p class="hero-desc animate delay-3">
-      具備 <strong style="color:var(--accent)">6+ 年</strong>軟體產品與專案管理經驗，以及 <strong style="color:var(--accent)">2+ 年</strong> PM Lead 經驗。專注於平台型產品、FinTech、Crypto、合規系統與高複雜度跨部門專案，擅長從 0→1 建立產品與流程，並透過 AI 與自動化提升團隊交付效率。
+      具備 <strong style="color:var(--accent)">6+ 年</strong>軟體產品與專案管理經驗，以及 <strong style="color:var(--accent)">3+ 年</strong> PM Lead 經驗。專注於平台型產品、FinTech、Crypto、合規系統與高複雜度跨部門專案，擅長從 0→1 建立產品與流程，並透過 AI 與自動化提升團隊交付效率。
     </p>
-    <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent2);letter-spacing:2px;margin-bottom:14px;">【核心能力】</div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent2);letter-spacing:2px;margin-bottom:14px;">CORE CAPABILITIES</div>
     <div class="hero-tags animate delay-4">
       <span class="tag">Product Lead</span>
       <span class="tag">0→1 Product Builder</span>
@@ -836,7 +964,7 @@
       <div class="stat-label">Product Management</div>
     </div>
     <div class="stat-card">
-      <span class="stat-num">2+</span>
+      <span class="stat-num">3+</span>
       <div class="stat-label">PM Leadership</div>
     </div>
     <div class="stat-card">
@@ -859,16 +987,16 @@
   </div>
   <div class="summary-grid">
     <div class="summary-card">
-      <p>Product Lead with 6+ years of experience building complex platform, FinTech, Crypto, and compliance products from 0→1 through scale.</p>
+      <p>具備 6+ 年產品與專案管理經驗，專注於平台型產品、FinTech、Crypto 與合規產品，能從 0→1 建立流程並推動產品持續擴展。</p>
     </div>
     <div class="summary-card">
-      <p>Specialized in 0→1 product development, cross-functional leadership, process optimization, and AI-driven workflow automation.</p>
+      <p>擅長 0→1 產品建置、跨部門帶領、流程優化，以及透過 AI Workflow 提升團隊交付效率。</p>
     </div>
     <div class="summary-card">
-      <p>Led product teams, established product development processes, and delivered complex systems including payment platforms, NFT exchanges, crypto exchanges, and compliance platforms.</p>
+      <p>曾帶領 PM 團隊，建立產品開發流程，並交付金流平台、NFT 交易所、加密貨幣交易所與合規平台等複雜系統。</p>
     </div>
     <div class="summary-card">
-      <p>Experienced in aligning business goals, operational requirements, and technical constraints to drive scalable product delivery.</p>
+      <p>能在商業目標、營運需求與技術限制之間做取捨，將產品方向轉成可落地、可擴展的交付方案。</p>
     </div>
   </div>
 </div>
@@ -998,7 +1126,7 @@
     <!-- 鑫高科技 -->
     <div class="exp-item">
       <div class="exp-header">
-        <div class="exp-role">業務工程師</div>
+        <div class="exp-role">Sales Engineer</div>
         <div class="exp-period">2017/04 → 2019/12</div>
       </div>
       <div class="exp-company"><span>鑫高科技有限公司</span> · 綜合商品批發代理業 · 台北市大同區</div>
@@ -1023,8 +1151,8 @@
         <div class="ai-metric-label">Improvement in Selected Repetitive Workflows</div>
       </div>
       <div class="ai-desc">
-        <p>Implemented AI-driven workflows across product teams using <strong>Claude, ChatGPT, Jira Automation, and n8n</strong>.</p>
-        <p>Applied AI to requirement drafting, ticket creation, release management, workflow synchronization, and team collaboration, enabling faster delivery and reducing repetitive operational work.</p>
+        <p>使用 <strong>Claude、ChatGPT、Jira Automation、n8n</strong> 導入 AI-driven workflows，應用於產品團隊的日常協作。</p>
+        <p>將 AI 應用在需求整理、Jira 建票、Release 管理、流程同步與跨部門溝通，減少重複性營運工作，讓交付節奏更穩定。</p>
         <div class="ai-use-cases">
           <span class="chip">AI-assisted PRD &amp; Requirement Drafting</span>
           <span class="chip">Jira Ticket Template &amp; Automation</span>
