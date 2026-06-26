@@ -1,940 +1,1363 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Jeff Su - Product Lead Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蘇紀豪 Jeff Su | Product Lead · Senior Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #080c14;
-  --bg2: #0d1321;
-  --bg3: #111827;
-  --accent: #00d4ff;
-  --accent2: #7c3aed;
-  --accent3: #10b981;
-  --text: #e2e8f0;
-  --text2: #94a3b8;
-  --text3: #64748b;
-  --border: rgba(0,212,255,0.16);
-  --card: rgba(13,19,33,0.82);
-  --card2: rgba(17,24,39,0.72);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Noto Sans TC', 'Space Grotesk', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  line-height: 1.7;
-}
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0,212,255,0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.032) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(0,212,255,0.09), transparent 34%),
-    radial-gradient(circle at 80% 24%, rgba(124,58,237,0.08), transparent 30%),
-    linear-gradient(180deg, rgba(8,12,20,0), rgba(8,12,20,0.8));
-  pointer-events: none;
-  z-index: 0;
-}
-section, nav, footer { position: relative; z-index: 1; }
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(8,12,20,0.86);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,200,255,0.15);
-  z-index: 100;
-}
-.nav-logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-  text-decoration: none;
-}
-.nav-links {
-  display: flex;
-  gap: 1.6rem;
-  list-style: none;
-}
-.nav-links a {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #c8e6f0;
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--accent); }
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #c8e6f0;
-  border-radius: 2px;
-}
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 64px;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 2rem;
-  background: rgba(8,12,20,0.98);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  z-index: 99;
-  flex-direction: column;
-  gap: 1rem;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: 'Space Grotesk', sans-serif;
-  color: #c8e6f0;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.85rem;
-}
-.hero {
-  min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 112px 2rem 4rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  gap: 4rem;
-  align-items: center;
-}
-.hero-badge, .section-label, .case-kicker {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 6px 14px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  margin-bottom: 1.5rem;
-  background: rgba(0,212,255,0.05);
-}
-.hero-badge::before {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent3);
-  box-shadow: 0 0 8px var(--accent3);
-}
-.hero h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3.2rem, 7vw, 5.8rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.2rem;
-}
-.hero-subtitle {
-  font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
-  font-size: clamp(1.35rem, 3vw, 2.15rem);
-  line-height: 1.25;
-  color: var(--text);
-  max-width: 760px;
-  margin-bottom: 1.2rem;
-}
-.hero-subtitle .highlight {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-desc {
-  font-size: 1rem;
-  color: var(--text2);
-  max-width: 660px;
-  line-height: 1.85;
-  margin-bottom: 2.2rem;
-}
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-.stat-item {
-  min-height: 116px;
-  padding: 1rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 0 40px rgba(0,212,255,0.04);
-}
-.stat-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 0.55rem;
-}
-.stat-label {
-  font-size: 0.78rem;
-  color: var(--text2);
-  line-height: 1.35;
-}
-.hero-panel {
-  position: relative;
-  min-height: 440px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background:
-    linear-gradient(135deg, rgba(0,212,255,0.08), rgba(124,58,237,0.08)),
-    rgba(13,19,33,0.72);
-  overflow: hidden;
-  box-shadow: 0 0 60px rgba(0,212,255,0.08);
-}
-.hero-panel::before {
-  content: '';
-  position: absolute;
-  inset: 20px;
-  border: 1px solid rgba(0,212,255,0.12);
-  border-radius: 8px;
-}
-.panel-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(226,232,240,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(226,232,240,0.045) 1px, transparent 1px);
-  background-size: 36px 36px;
-}
-.panel-content {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.panel-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--accent);
-  letter-spacing: 0.12em;
-}
-.system-map {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-.system-node {
-  border: 1px solid rgba(0,212,255,0.18);
-  background: rgba(8,12,20,0.72);
-  border-radius: 8px;
-  padding: 0.95rem;
-  min-height: 76px;
-}
-.system-node strong {
-  display: block;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.92rem;
-  margin-bottom: 0.2rem;
-}
-.system-node span {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--text3);
-}
-.panel-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--text3);
-}
-.section-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5.8rem 2rem;
-}
-.section-header {
-  max-width: 860px;
-  margin-bottom: 2rem;
-}
-.section-label {
-  font-size: 0.72rem;
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.section-label::before {
-  content: '';
-  width: 24px;
-  height: 1px;
-  background: var(--accent);
-}
-.section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-.section-desc {
-  color: var(--text2);
-  font-size: 1rem;
-  line-height: 1.9;
-}
-.build-section {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.build-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
-  align-items: start;
-}
-.build-copy p {
-  color: var(--text2);
-  line-height: 1.95;
-  margin-bottom: 1.1rem;
-}
-.focus-list {
-  display: grid;
-  gap: 0.7rem;
-  margin-top: 1.5rem;
-}
-.focus-item {
-  display: flex;
-  gap: 0.75rem;
-  color: var(--text2);
-  font-size: 0.95rem;
-}
-.focus-item::before {
-  content: '>';
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent);
-}
-.capability-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
-}
-.capability-card {
-  min-height: 132px;
-  padding: 1.2rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-.capability-card h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
-  margin-bottom: 0.55rem;
-}
-.capability-card p {
-  color: var(--text3);
-  font-size: 0.82rem;
-  line-height: 1.55;
-}
-.projects-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-}
-.case-group-title {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  margin: 2.5rem 0 1rem;
-}
-.case-card {
-  padding: 2.6rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.case-head {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 2rem;
-  margin-bottom: 1.8rem;
-}
-.case-index {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--text3);
-  letter-spacing: 0.12em;
-}
-.case-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-  margin-bottom: 0.55rem;
-}
-.case-category {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-}
-.case-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 2rem;
-  align-items: start;
-}
-.case-sections {
-  display: grid;
-  gap: 1rem;
-}
-.case-section {
-  background: rgba(13,19,33,0.5);
-  border: 1px solid rgba(0,212,255,0.11);
-  border-radius: 8px;
-  padding: 1.1rem 1.2rem;
-}
-.case-section h4 {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--accent);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.case-section p, .case-section li {
-  color: var(--text2);
-  font-size: 0.93rem;
-  line-height: 1.75;
-}
-.case-section ul {
-  list-style: none;
-  display: grid;
-  gap: 0.35rem;
-}
-.case-section li {
-  display: flex;
-  gap: 0.65rem;
-}
-.case-section li::before {
-  content: '▸';
-  color: var(--accent);
-  flex-shrink: 0;
-}
-.result-panel {
-  position: sticky;
-  top: 84px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1rem;
-}
-.result-label {
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.68rem;
-  margin-bottom: 0.75rem;
-}
-.result-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.65rem;
-}
-.result-card {
-  min-height: 92px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 1px solid rgba(0,212,255,0.15);
-  border-radius: 8px;
-  padding: 0.85rem;
-  background: rgba(8,12,20,0.62);
-}
-.result-card strong {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.15;
-  color: var(--accent);
-  margin-bottom: 0.35rem;
-}
-.result-card span {
-  color: var(--text3);
-  font-size: 0.72rem;
-  line-height: 1.35;
-}
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-.tag {
-  padding: 5px 10px;
-  background: rgba(124,58,237,0.1);
-  border: 1px solid rgba(124,58,237,0.28);
-  border-radius: 4px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: #a78bfa;
-}
-.additional .case-body {
-  grid-template-columns: 1fr;
-}
-.additional .case-sections {
-  grid-template-columns: repeat(3, 1fr);
-}
-.contact-wrap {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-}
-.contact-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4.5rem 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-.contact-inner h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.2rem;
-  line-height: 1.1;
-  margin-bottom: 0.8rem;
-}
-.contact-inner p {
-  color: var(--text2);
-}
-.contact-items {
-  display: grid;
-  gap: 0.85rem;
-}
-.contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.15rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text);
-  text-decoration: none;
-}
-.contact-label {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--text3);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.contact-value {
-  display: block;
-  color: var(--text);
-  font-size: 0.9rem;
-  margin-top: 0.2rem;
-}
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--text3);
-  letter-spacing: 0.05em;
-}
-.fade-in,
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-#scrollTop {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(0,212,255,0.1);
-  border: 1px solid rgba(0,212,255,0.3);
-  color: var(--accent);
-  font-size: 1.1rem;
-  cursor: pointer;
-  z-index: 99;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  backdrop-filter: blur(10px);
-}
-#scrollTop:hover { background: rgba(0,212,255,0.2); }
-@media (max-width: 920px) {
-  .hero, .build-grid, .case-body, .contact-inner {
-    grid-template-columns: 1fr;
+  :root {
+    --bg: #050a0f;
+    --bg2: #080f18;
+    --panel: rgba(0, 200, 255, 0.04);
+    --border: rgba(0, 200, 255, 0.15);
+    --accent: #00c8ff;
+    --accent2: #00ff9d;
+    --accent3: #ff6b35;
+    --text: #c8e6f0;
+    --text-dim: #5a8a9f;
+    --glow: 0 0 16px rgba(0, 200, 255, 0.18);
+    --glow2: 0 0 16px rgba(0, 255, 157, 0.16);
   }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: auto;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 12px; height: 12px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed; z-index: 9999;
+    pointer-events: none;
+    transition: transform 0.1s, background 0.2s;
+    mix-blend-mode: screen;
+    display: none;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(0,200,255,0.4);
+    border-radius: 50%;
+    position: fixed; z-index: 9998;
+    pointer-events: none;
+    transition: transform 0.25s ease, width 0.3s, height 0.3s;
+    display: none;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,200,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,200,255,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,200,255,0.06) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Scanlines */
+  .scanlines {
+    position: fixed; inset: 0; z-index: 1;
+    pointer-events: none;
+    opacity: 0.28;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.035) 3px,
+      rgba(0,0,0,0.035) 4px
+    );
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    height: 64px;
+    background: rgba(8,12,20,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,200,255,0.15);
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00c8ff;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: inherit; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #c8e6f0;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #00c8ff; }
+  .nav-links a.active { color: #00c8ff; }
+
+  /* Nav scrolled state */
+  nav.scrolled {
+    padding: 0 2rem;
+    background: rgba(8,12,20,0.85);
+    border-bottom-color: rgba(0,200,255,0.15);
+    box-shadow: none;
+    transition: background 0.3s;
+  }
+  nav { transition: background 0.3s; }
+
+  /* Mobile hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: #c8e6f0;
+    transition: transform 0.3s, opacity 0.3s;
+    border-radius: 2px;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0;
+      flex-direction: column; gap: 1.5rem;
+      background: rgba(8,12,20,0.97);
+      border-bottom: 1px solid rgba(0,200,255,0.15);
+      padding: 1.5rem 2rem;
+      backdrop-filter: blur(20px);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a {
+      padding: 0;
+      border-bottom: none;
+      font-size: 1rem;
+    }
+  }
+
+  /* HERO */
   .hero {
-    padding-top: 96px;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
   }
-  .hero-panel {
-    min-height: 360px;
+  .hero-content { max-width: 700px; }
+
+  .hero-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
   }
-  .result-panel {
-    position: static;
+  .hero-label::before {
+    content: ''; display: inline-block;
+    width: 32px; height: 1px; background: var(--accent2);
   }
-  .additional .case-sections {
-    grid-template-columns: 1fr;
+
+  .hero h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 0 28px rgba(0,200,255,0.22);
+    margin-bottom: 8px;
+    white-space: nowrap;
   }
-}
-@media (max-width: 768px) {
-  nav { padding: 0 1rem; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero { padding: 96px 1.25rem 3rem; gap: 2rem; }
-  .section-wrap { padding: 4rem 1.25rem; }
-  .hero-stats, .capability-grid, .result-grid {
+  .hero h1 .accent { color: var(--accent); }
+
+  .hero-en {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    color: var(--text-dim);
+    letter-spacing: 6px;
+    margin-bottom: 32px;
+  }
+
+  .hero-title {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    margin-bottom: 32px;
+    background: var(--panel);
+    letter-spacing: 2px;
+  }
+  .hero-title::before { content: '//'; color: var(--accent2); }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin-bottom: 48px;
+    border-left: 2px solid var(--border);
+    padding-left: 20px;
+  }
+
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+  .tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    background: var(--panel);
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--glow); }
+
+  /* SUMMARY */
+  .summary-grid {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
-  .case-head {
-    grid-template-columns: 1fr;
-    gap: 0.55rem;
+  .summary-card {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 22px 24px;
+    position: relative;
+    overflow: hidden;
   }
-  .contact-inner { padding: 4rem 1.25rem; }
-}
-@media (max-width: 520px) {
-  .hero-stats, .capability-grid, .result-grid, .system-map {
-    grid-template-columns: 1fr;
+  .summary-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    opacity: 0.55;
   }
-  .hero h1 { font-size: 3rem; }
-}
+  .summary-card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-dim);
+  }
+
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--accent); opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .btn:hover { color: var(--bg); box-shadow: var(--glow); }
+  .btn:hover::before { opacity: 1; }
+  .btn span { position: relative; z-index: 1; }
+  .btn-ghost { border-color: var(--border); color: var(--text-dim); }
+  .btn-ghost:hover { border-color: var(--accent2); color: var(--bg); box-shadow: var(--glow2); }
+  .btn-ghost::before { background: var(--accent2); }
+
+  /* HERO STATS */
+  .hero-stats {
+    position: absolute; right: 48px; top: 320px;
+    transform: none;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .stat-card {
+    border: 1px solid var(--border);
+    padding: 20px 28px;
+    background: var(--panel);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .stat-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    text-shadow: var(--glow);
+  }
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* SECTION BASE */
+  section {
+    position: relative; z-index: 2;
+  }
+  .section-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 100px 48px;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 24px;
+    margin-bottom: 64px;
+  }
+  .section-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 3px;
+  }
+  .section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 2px; }
+  .exp-item {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .exp-item::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .exp-item:hover { border-color: rgba(0,200,255,0.35); box-shadow: var(--glow); }
+  .exp-item:hover::before { opacity: 1; }
+
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+  .exp-role {
+    font-family: 'Orbitron', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
+  .exp-period {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border: 1px solid rgba(0,255,157,0.2);
+    background: rgba(0,255,157,0.05);
+  }
+  .exp-company {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 1px;
+  }
+  .exp-company span { color: var(--text); }
+
+  .exp-achievements { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .exp-achievements li {
+    font-size: 13px;
+    color: var(--text-dim);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.7;
+  }
+  .exp-achievements li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--accent2);
+    font-size: 11px;
+  }
+  .exp-achievements li strong { color: var(--text); font-weight: 500; }
+
+  .exp-highlight {
+    margin-top: 16px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .exp-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border: 1px solid rgba(0,200,255,0.12);
+    color: rgba(0,200,255,0.5);
+    letter-spacing: 1px;
+  }
+
+  .featured-project {
+    margin-top: 22px;
+    border: 1px solid rgba(0,255,157,0.18);
+    background: rgba(0,255,157,0.025);
+    padding: 20px 22px;
+  }
+  .featured-kicker {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .featured-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    color: var(--text);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .featured-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .featured-value {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-dim);
+  }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .skill-card {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    padding: 28px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .skill-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0,200,255,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    border: 1px solid var(--border);
+    background: rgba(0,200,255,0.025);
+    padding: 7px 12px;
+  }
+  .skill-card:hover { border-color: rgba(0,200,255,0.35); transform: translateY(-4px); box-shadow: var(--glow); }
+  .skill-card-icon {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .skill-card-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .skill-items { display: flex; flex-direction: column; gap: 10px; }
+  .skill-row { display: flex; flex-direction: column; gap: 4px; }
+  .skill-name {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    display: flex; justify-content: space-between;
+  }
+  .skill-bar {
+    height: 2px;
+    background: rgba(0,200,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    animation: fillBar 1.5s ease forwards;
+    transform-origin: left;
+  }
+  @keyframes fillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* AI WORKFLOW */
+  .ai-section {
+    border: 1px solid rgba(0,255,157,0.2);
+    background: rgba(0,255,157,0.03);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+  }
+  .ai-section::before {
+    content: 'AI WORKFLOW';
+    position: absolute; top: 20px; right: 28px;
+    font-family: 'Orbitron', monospace;
+    font-size: 60px;
+    font-weight: 900;
+    color: rgba(0,255,157,0.035);
+    letter-spacing: 8px;
+  }
+  .ai-metrics { display: flex; gap: 48px; flex-wrap: wrap; }
+  .ai-metric { text-align: center; }
+  .ai-metric-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent2);
+    display: block;
+    text-shadow: var(--glow2);
+  }
+  @keyframes pulse { from { opacity: 0.7; } to { opacity: 1; } }
+  .ai-metric-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    margin-top: 8px;
+  }
+  .ai-desc {
+    flex: 1;
+    min-width: 280px;
+  }
+  .ai-desc p { font-size: 14px; line-height: 1.9; color: var(--text-dim); }
+  .ai-desc strong { color: var(--accent2); }
+  .ai-use-cases {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  /* ABOUT / BIO */
+  .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .bio-text { font-size: 14px; line-height: 2; color: var(--text-dim); }
+  .bio-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .bio-info-item {
+    background: var(--bg2);
+    padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .bio-info-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .bio-info-val {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* EDUCATION */
+  .edu-list { display: flex; flex-direction: column; gap: 16px; }
+  .edu-item {
+    display: flex; align-items: flex-start; gap: 20px;
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    background: var(--panel);
+    transition: all 0.3s;
+  }
+  .edu-item:hover { border-color: rgba(0,200,255,0.3); }
+  .edu-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: var(--glow);
+    flex-shrink: 0; margin-top: 5px;
+  }
+  .edu-school {
+    font-family: 'Orbitron', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 1px;
+  }
+  .edu-dept { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+  .edu-period {
+    margin-left: auto;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .contact-card {
+    border: 1px solid var(--border);
+    padding: 28px;
+    background: var(--panel);
+    display: flex; flex-direction: column; gap: 8px;
+    transition: all 0.3s;
+  }
+  .contact-card:hover { border-color: var(--accent); box-shadow: var(--glow); }
+  .contact-icon { font-size: 20px; }
+  .contact-type {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .contact-val { font-size: 14px; color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    position: relative; z-index: 2;
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 4px;
+  }
+  .footer-note {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  /* OPPORTUNITIES */
+  .opportunities {
+    position: relative; z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 72px;
+  }
+  .opportunities-card {
+    border: 1px solid rgba(0,255,157,0.18);
+    background: rgba(0,255,157,0.025);
+    padding: 28px 32px;
+  }
+  .opportunities-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 14px;
+    color: var(--accent2);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .opportunities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* LOADING ANIMATION */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fadeInUp 0.7s ease forwards; opacity: 0; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+
+  /* GLITCH */
+  @keyframes glitch {
+    0%, 100% { clip-path: none; transform: none; }
+    2% { clip-path: inset(40% 0 60% 0); transform: translate(-4px, 0); }
+    4% { clip-path: inset(70% 0 10% 0); transform: translate(4px, 0); }
+    6% { clip-path: none; transform: none; }
+  }
+  .glitch { animation: none; }
+
+  /* SCROLL indicator */
+  .scroll-indicator {
+    position: fixed; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    animation: bounce 2s ease infinite;
+  }
+  .scroll-indicator.hidden { opacity: 0; }
+  .scroll-indicator::after {
+    content: '▼';
+    font-size: 12px;
+    color: var(--accent);
+  }
+  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 16px 24px; }
+    .section-inner { padding: 80px 24px; }
+    .hero { padding: 100px 24px 80px; flex-direction: column; }
+    .hero-title { display: flex; line-height: 1.7; }
+    .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .ai-section { padding: 32px 24px; }
+    .ai-section::before { font-size: 36px; right: 18px; }
+    .bio-grid { grid-template-columns: 1fr; }
+    .opportunities { padding: 0 24px 56px; }
+    footer { padding: 32px 24px; }
+  }
+
+  /* Unified visual polish across homepage / portfolio / resume */
+  :root {
+    --bg: #070c12;
+    --bg2: #0b121d;
+    --panel: rgba(34, 199, 238, 0.045);
+    --border: rgba(148, 211, 226, 0.16);
+    --accent: #22c7ee;
+    --accent2: #38d98b;
+    --text: #d7e8ee;
+    --text-dim: #86a8b5;
+    --glow: 0 0 10px rgba(34, 199, 238, 0.12);
+    --glow2: 0 0 8px rgba(56, 217, 139, 0.1);
+  }
+
+  body {
+    font-family: 'Noto Sans TC', 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(34,199,238,0.055), transparent 42%),
+      var(--bg);
+  }
+
+  body::before {
+    background-image:
+      linear-gradient(rgba(34,199,238,0.014) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,199,238,0.014) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  body::after {
+    background: radial-gradient(ellipse 80% 56% at 50% 0%, rgba(34,199,238,0.045) 0%, transparent 70%);
+  }
+
+  .scanlines {
+    display: none;
+  }
+
+  nav,
+  nav.scrolled,
+  .nav-links {
+    background: rgba(7,12,18,0.93);
+    border-color: var(--border);
+  }
+
+  .nav-logo,
+  .nav-links a,
+  .hero h1,
+  .section-title,
+  .exp-role,
+  .stat-num,
+  .featured-title,
+  .skill-card-title,
+  .ai-stat,
+  .edu-school,
+  .footer-logo,
+  .opportunities-card h3 {
+    font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+    letter-spacing: 0;
+    text-shadow: none;
+  }
+
+  .hero-label,
+  .hero-en,
+  .hero-title,
+  .tag,
+  .btn,
+  .section-num,
+  .exp-company,
+  .skill-name,
+  .ai-label,
+  .timeline-label,
+  .footer-note {
+    font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+    letter-spacing: 0.08em;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5.8vw, 68px);
+    color: var(--text);
+  }
+
+  .section-title {
+    font-size: clamp(21px, 2.6vw, 28px);
+  }
+
+  .hero-desc,
+  .exp-desc,
+  .exp-achievements li,
+  .skill-name,
+  .bio-text,
+  .ai-desc p,
+  .contact-val {
+    color: var(--text-dim);
+  }
+
+  .summary-card,
+  .stat-card,
+  .exp-item,
+  .featured-card,
+  .skill-card,
+  .ai-section,
+  .edu-item,
+  .contact-card,
+  .opportunities-card {
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .summary-card:hover,
+  .exp-item:hover,
+  .skill-card:hover,
+  .contact-card:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+  }
+
+  .section-inner {
+    padding: 6.5rem 48px;
+  }
+
+  @media (max-width: 900px) {
+    nav,
+    nav.scrolled { padding: 0 24px; height: 64px; }
+    .section-inner { padding: 4.5rem 1.5rem; }
+    .hero { padding: 96px 24px 72px; }
+    .nav-links { top: 64px; }
+  }
 </style>
 </head>
 <body>
-<nav>
-  <a class="nav-logo" href="#">JEFF SU</a>
-  <ul class="nav-links">
-    <li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/">Home</a></li>
-    <li><a href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">Resume</a></li>
-    <li><a href="#build">Approach</a></li>
-    <li><a href="#projects">Case Studies</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Open menu">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="https://jeffsu0816.github.io/Jeff-su.github.io/">JEFF SU</a>
+  <div class="nav-links" id="navLinks">
+    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/">HOME</a>
+    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/resume">RESUME</a>
+    <a href="https://jeffsu0816.github.io/Jeff-su.github.io/portfolio">PORTFOLIO</a>
+    <a href="#experience" data-section="experience">WORK</a>
+    <a href="#skills" data-section="skills">SKILLS</a>
+    <a href="#education" data-section="education">EDUCATION</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger">
     <span></span><span></span><span></span>
-  </button>
+  </div>
 </nav>
-<div class="mobile-menu">
-  <a href="#build" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Approach</a>
-  <a href="#projects" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Case Studies</a>
-  <a href="#contact" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Contact</a>
+
+<!-- HERO -->
+<div style="position:relative;z-index:2;">
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-label animate delay-1">PRODUCT LEAD · PLATFORM · FINTECH · AI WORKFLOW</div>
+    <h1 class="animate delay-2">JEFF SU</h1>
+    <div class="hero-en animate delay-2">Product Lead / Senior Product Manager</div>
+    <div class="hero-title animate delay-3">從 0→1 建立複雜平台，<br>帶領跨部門團隊，<br>並透過 AI 自動化提升交付效率。</div>
+    <p class="hero-desc animate delay-3">
+      具備 <strong style="color:var(--accent)">6+ 年</strong>軟體產品與專案管理經驗，以及 <strong style="color:var(--accent)">3+ 年</strong> PM Lead 經驗。專注於平台型產品、FinTech、Crypto、合規系統與高複雜度跨部門專案，擅長從 0→1 建立產品與流程，並透過 AI 與自動化提升團隊交付效率。
+    </p>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent2);letter-spacing:2px;margin-bottom:14px;">CORE CAPABILITIES</div>
+    <div class="hero-tags animate delay-4">
+      <span class="tag">Product Lead</span>
+      <span class="tag">0→1 Product Builder</span>
+      <span class="tag">Complex Systems PM</span>
+      <span class="tag">Platform / FinTech</span>
+      <span class="tag">AI Workflow Practitioner</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-card">
+      <span class="stat-num">6+</span>
+      <div class="stat-label">Product Management</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">3+</span>
+      <div class="stat-label">PM Leadership</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">4+</span>
+      <div class="stat-label">Major 0→1 Products</div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">SCROLL</div>
+</div>
 </div>
 
-<section class="hero">
-  <div class="hero-text fade-in">
-    <div class="hero-badge">PRODUCT LEAD PORTFOLIO</div>
-    <h1>Jeff Su</h1>
-    <div class="hero-subtitle">從 <span class="highlight">0→1</span> 建立複雜平台，帶領跨部門協作，並透過 AI 自動化提升交付效率。</div>
-    <p class="hero-desc">精選案例涵蓋金流、Crypto、合規平台、平台重構與 AI 工作流程自動化。</p>
-    <div class="hero-stats">
-      <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">產品管理經驗</div></div>
-      <div class="stat-item"><div class="stat-num">2+</div><div class="stat-label">產品帶領經驗</div></div>
-      <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">大型 0→1 產品</div></div>
-      <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">跨部門利害關係人</div></div>
+<!-- SUMMARY -->
+<section id="summary">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">00</span>
+    <h2 class="section-title">Professional Summary</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <p>具備 6+ 年產品與專案管理經驗，專注於平台型產品、FinTech、Crypto 與合規產品，能從 0→1 建立流程並推動產品持續擴展。</p>
+    </div>
+    <div class="summary-card">
+      <p>擅長 0→1 產品建置、跨部門帶領、流程優化，以及透過 AI Workflow 提升團隊交付效率。</p>
+    </div>
+    <div class="summary-card">
+      <p>曾帶領 PM 團隊，建立產品開發流程，並交付金流平台、NFT 交易所、加密貨幣交易所與合規平台等複雜系統。</p>
+    </div>
+    <div class="summary-card">
+      <p>能在商業目標、營運需求與技術限制之間做取捨，將產品方向轉成可落地、可擴展的交付方案。</p>
     </div>
   </div>
-  <div class="hero-panel fade-in" style="transition-delay:0.12s;">
-    <div class="panel-grid"></div>
-    <div class="panel-content">
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-list">
+    <!-- JY Diamond -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">PM Lead / Product Owner</div>
+        <div class="exp-period">2024/09 → 現在</div>
+      </div>
+      <div class="exp-company"><span>鑫鼎鑽科技有限公司</span> · 電腦軟體服務業 · 台北市南港區</div>
+      <ul class="exp-achievements">
+        <li>2024/09–2025/05 擔任 Product Owner，2025/06 晉升 PM Lead，負責產品流程、團隊協作與跨部門推進</li>
+        <li>管理 <strong>7 位 PM</strong>，建立需求評估、優先排序與協作機制，協助團隊聚焦高影響項目</li>
+        <li>擔任大型平台前後端重構專案 PO，協調設計、開發、QA、AM 與支付團隊，推動產品架構與 UI/UX 優化</li>
+        <li>建立需求文件、驗收標準與跨部門溝通節點，降低需求落差與溝通成本，提升交付穩定性</li>
+        <li>導入 Claude、ChatGPT、Jira Automation 與 n8n 至 PM 日常流程，應用於需求整理、建票、Release 公告、Hotfix 公告與站會同步</li>
+        <li>透過 AI Workflow 與流程優化，整體效率提升約 <strong>20–30%</strong>，部分重複性流程提升 <strong>80–90%</strong></li>
+      </ul>
+      <div class="exp-highlight">
+        <span class="exp-tag">Product Lead</span>
+        <span class="exp-tag">Product Operations</span>
+        <span class="exp-tag">AI Workflow</span>
+        <span class="exp-tag">Jira Automation</span>
+        <span class="exp-tag">n8n</span>
+        <span class="exp-tag">Cross-functional Leadership</span>
+      </div>
+    </div>
+
+    <!-- 樺晟 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Product Manager</div>
+        <div class="exp-period">2024/06 → 2024/08</div>
+      </div>
+      <div class="exp-company"><span>樺晟電子股份有限公司</span> · 電腦及其週邊設備製造業 · 台北市南港區</div>
+      <ul class="exp-achievements">
+        <li>整合硬體、IoT 與現場設備流程，先釐清例外情境與維運風險，降低專案落地阻力（約 10~20%）</li>
+        <li>在需求不明確情況下，先定義現場流程與驗收節點，再轉成可執行規格，讓溝通往返減少（約 20~30%）</li>
+        <li>先判斷硬體限制與高風險流程，再決定開發範圍與上線順序，讓專案能在短期內穩定推進</li>
+      </ul>
+      <div class="exp-highlight">
+        <span class="exp-tag">IoT</span>
+        <span class="exp-tag">Hardware Integration</span>
+        <span class="exp-tag">Project Management</span>
+      </div>
+    </div>
+
+    <!-- 羅卡斯 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">PM Lead</div>
+        <div class="exp-period">2022/03 → 2024/03</div>
+      </div>
+      <div class="exp-company"><span>羅卡斯科技股份有限公司</span> · 電腦軟體服務業 · 台北市大同區</div>
+      <ul class="exp-achievements">
+        <li>主導 NFT 交易所 0→1 與 1→10 產品規劃，涵蓋會員、商家、代理、KYC、支付、錢包、上架、訂單與交易流程</li>
+        <li>產品上線後創造每月近百萬元利潤，並持續優化交易、資產與營運流程以支撐成長</li>
+        <li>參與加密貨幣交易所 0→1，涵蓋會員系統、鏈上充值提領、節點監聽、訂單與交易相關流程</li>
+        <li>帶領 <strong>30+ 跨部門成員</strong>協作，包含開發、設計、QA、營運、客服與管理層，整合多方需求並推動落地</li>
+        <li>建立需求拆解、優先排序、驗收標準與新人 PM 指導流程，降低需求落差與返工風險</li>
+        <li>評估 GameFi、社群平台與 AI 交友等新產品方向，協助判斷產品延伸與投入順序</li>
+      </ul>
+      <div class="featured-project">
+        <div class="featured-kicker">Featured Project</div>
+        <div class="featured-title">NFT Exchange 0→1</div>
+        <div class="featured-grid">
+          <div>
+            <div class="featured-label">Role</div>
+            <div class="featured-value">PM Lead</div>
+          </div>
+          <div>
+            <div class="featured-label">Scope</div>
+            <div class="featured-value">Membership / KYC / Wallet / Merchant / NFT Trading / Order Flow</div>
+          </div>
+          <div>
+            <div class="featured-label">Result</div>
+            <div class="featured-value">0→1 Launch / Monthly Profit Near NT$1M / Multi-role Platform Architecture</div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-highlight">
+        <span class="exp-tag">NFT Exchange</span>
+        <span class="exp-tag">Crypto Exchange</span>
+        <span class="exp-tag">Product 0→1</span>
+        <span class="exp-tag">Platform Architecture</span>
+        <span class="exp-tag">PM Lead</span>
+        <span class="exp-tag">Stakeholder Management</span>
+      </div>
+    </div>
+
+    <!-- 萬達 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Product Manager</div>
+        <div class="exp-period">2020/08 → 2021/07</div>
+      </div>
+      <div class="exp-company"><span>萬達資訊服務有限公司</span> · 電腦軟體服務業 · 台北市中正區</div>
+      <ul class="exp-achievements">
+        <li>從 0→1 規劃金流系統產品，涵蓋註冊、儲值、訂單、帳務邏輯、費率、反傭與風控流程</li>
+        <li>規劃 1 個前台與 5 個後台系統，包含總控、商戶、商戶代理、用戶與用戶代理等多角色使用情境</li>
+        <li>產品上線後支撐多品牌營運，並帶來每月數百萬元營收</li>
+        <li>協調近 20 人跨部門團隊，建立功能優先順序與風險評估機制，讓高複雜度專案穩定推進</li>
+        <li>在需求不明確情況下，先定義金流、帳務與對帳核心流程，再轉成可執行規格與驗收標準</li>
+      </ul>
+      <div class="exp-highlight">
+        <span class="exp-tag">Payment Platform</span>
+        <span class="exp-tag">FinTech</span>
+        <span class="exp-tag">Product 0→1</span>
+        <span class="exp-tag">Multi-role Backend</span>
+        <span class="exp-tag">Risk Control</span>
+        <span class="exp-tag">Accounting Flow</span>
+      </div>
+    </div>
+
+    <!-- 鑫高科技 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Sales Engineer</div>
+        <div class="exp-period">2017/04 → 2019/12</div>
+      </div>
+      <div class="exp-company"><span>鑫高科技有限公司</span> · 綜合商品批發代理業 · 台北市大同區</div>
+      <ul class="exp-achievements">
+        <li>先釐清通路需求與銷售重點，再整理成提案與活動方案，提升產品導入效率與合作穩定性（約 10~20%）</li>
+        <li>建立售後支援與教育訓練節奏，讓客服與維修端的溝通往返減少（約 20~30%）</li>
+        <li>帶領 4 人以下團隊安排維修與庫存節奏，讓交付與支援更穩定（約 10~20%）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AI WORKFLOW -->
+  <div class="ai-section">
+    <div class="section-num" style="margin-bottom:24px;">✦ AI Workflow & Automation</div>
+    <div class="ai-metrics">
+      <div class="ai-metric">
+        <span class="ai-metric-num">30%</span>
+        <div class="ai-metric-label">Overall Efficiency Improvement</div>
+      </div>
+      <div class="ai-metric">
+        <span class="ai-metric-num">80–90%</span>
+        <div class="ai-metric-label">Improvement in Selected Repetitive Workflows</div>
+      </div>
+      <div class="ai-desc">
+        <p>使用 <strong>Claude、ChatGPT、Jira Automation、n8n</strong> 導入 AI-driven workflows，應用於產品團隊的日常協作。</p>
+        <p>將 AI 應用在需求整理、Jira 建票、Release 管理、流程同步與跨部門溝通，減少重複性營運工作，讓交付節奏更穩定。</p>
+        <div class="ai-use-cases">
+          <span class="chip">AI-assisted PRD &amp; Requirement Drafting</span>
+          <span class="chip">Jira Ticket Template &amp; Automation</span>
+          <span class="chip">Release / Hotfix Announcement</span>
+          <span class="chip">Daily Stand-up Summary</span>
+          <span class="chip">Jira Status Sync</span>
+          <span class="chip">n8n Workflow Automation</span>
+          <span class="chip">Figma Spec Review with Claude</span>
+          <span class="chip">Google Sheet Workflow Processing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Core Expertise & Tools</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">🧠</div>
+      <div class="skill-card-title">Core Expertise</div>
+      <div class="chip-grid">
+        <span class="chip">Product Strategy</span>
+        <span class="chip">0→1 Product Development</span>
+        <span class="chip">Product Operations</span>
+        <span class="chip">Platform Product Management</span>
+        <span class="chip">FinTech / Payment Flow</span>
+        <span class="chip">Crypto / NFT Product Flow</span>
+        <span class="chip">Stakeholder Management</span>
+        <span class="chip">Cross-functional Leadership</span>
+        <span class="chip">Process Optimization</span>
+        <span class="chip">AI Workflow Automation</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-card-icon">🛠️</div>
+      <div class="skill-card-title">Tools</div>
+      <div class="chip-grid">
+        <span class="chip">Jira</span>
+        <span class="chip">Confluence</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Axure RP</span>
+        <span class="chip">Claude</span>
+        <span class="chip">ChatGPT</span>
+        <span class="chip">n8n</span>
+        <span class="chip">Google Workspace</span>
+        <span class="chip">Slack</span>
+        <span class="chip">GitHub</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<div class="section-inner">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="edu-list">
+    <div class="edu-item">
+      <div class="edu-dot"></div>
       <div>
-        <div class="panel-title">CASE STUDY MAP / PRODUCT LEADERSHIP</div>
-        <div class="system-map">
-          <div class="system-node"><strong>金流平台</strong><span>Payment / Accounting / Risk</span></div>
-          <div class="system-node"><strong>Crypto 產品</strong><span>NFT / Wallet / KYC</span></div>
-          <div class="system-node"><strong>合規平台</strong><span>Regulation / Operations</span></div>
-          <div class="system-node"><strong>AI 自動化</strong><span>Automation / Workflow</span></div>
-        </div>
+        <div class="edu-school">私立龍華科技大學</div>
+        <div class="edu-dept">資訊網路工程系 · 四技畢業</div>
       </div>
-      <div class="panel-footer">
-        <span>0→1 系統建置</span>
-        <span>PM LEAD</span>
+      <div class="edu-period">2008/09 — 2012/06</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-dot" style="background:var(--accent2);box-shadow:var(--glow2)"></div>
+      <div>
+        <div class="edu-school">光啟高中</div>
+        <div class="edu-dept">電子科 · 高職畢業</div>
       </div>
+      <div class="edu-period">2005/08 — 2008/06</div>
     </div>
   </div>
+</div>
 </section>
 
-<section id="build" class="build-section">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <div class="section-label">Product Approach</div>
-      <h2 class="section-title">我如何建立產品</h2>
-      <p class="section-desc">我相信產品經理的價值不只是定義功能，而是協助組織解決問題。</p>
-    </div>
-    <div class="build-grid fade-in">
-      <div class="build-copy">
-        <p>過去參與過金流平台、NFT 交易所、加密貨幣交易所、合規平台與大型平台重構等產品。</p>
-        <p>我專注於：</p>
-        <div class="focus-list">
-          <div class="focus-item">將複雜問題拆解成可執行方案</div>
-          <div class="focus-item">建立產品流程與協作機制</div>
-          <div class="focus-item">協調多方利害關係人</div>
-          <div class="focus-item">利用 AI 與自動化提升團隊效率</div>
-        </div>
-      </div>
-      <div class="capability-grid">
-        <div class="capability-card"><h3>複雜系統拆解</h3><p>拆解金流、交易、合規、後台與多角色平台中的依賴關係。</p></div>
-        <div class="capability-card"><h3>0→1 產品建置</h3><p>從問題定義、流程設計、規格整理到跨團隊落地上線。</p></div>
-        <div class="capability-card"><h3>跨部門帶領</h3><p>協調 PM、設計、前後端、QA、營運、法規與商務利害關係人。</p></div>
-        <div class="capability-card"><h3>AI 工作流程自動化</h3><p>用 AI 與自動化減少重複工作，讓 PM 回到決策與問題解決。</p></div>
-      </div>
+<!-- OPPORTUNITIES -->
+<div class="opportunities">
+  <div class="opportunities-card">
+    <div class="opportunities-title">Open to Opportunities</div>
+    <div class="opportunities-list">
+      <span class="chip">Product Lead</span>
+      <span class="chip">Senior Product Manager</span>
+      <span class="chip">AI Product Manager</span>
+      <span class="chip">FinTech Product Manager</span>
+      <span class="chip">Platform Product Manager</span>
     </div>
   </div>
-</section>
+</div>
 
-<section id="projects">
-  <div class="section-wrap">
-    <div class="section-header fade-in">
-      <div class="section-label">Product Lead Case Studies</div>
-      <h2 class="section-title">精選產品案例</h2>
-      <p class="section-desc">每個案例都以商業背景、挑戰、我的角色、解法與成果呈現，讓招募主管能快速理解我的產品判斷與帶領方式。</p>
-    </div>
-    <hr class="projects-divider"/>
-    <div class="case-group-title fade-in">主要案例</div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">JEFF SU</div>
+  <div class="footer-note">Product Lead / Senior Product Manager · Platform / FinTech / AI Workflow</div>
+</footer>
 
-    <article class="case-card fade-in">
-      <div class="case-head">
-        <div class="case-index">01 / 07</div>
-        <div><h3 class="case-title">AI Workflow Automation</h3><div class="case-category">Product Operations / AI</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>商業背景</h4><p>PM 團隊存在大量重複性工作，例如需求整理、建票、公告同步、進度追蹤與跨部門溝通。</p></div>
-          <div class="case-section"><h4>挑戰</h4><p>如何降低重複性工作時間，讓 PM 能專注於產品決策與問題解決。</p></div>
-          <div class="case-section"><h4>我的角色</h4><p>PM Lead / AI Workflow Designer</p></div>
-          <div class="case-section"><h4>解法</h4><ul><li>導入 Claude、ChatGPT、Jira Automation、n8n。</li><li>應用於 AI 輔助 PRD、Jira 建票自動化、版本公告、Hotfix 公告。</li><li>延伸至每日站會摘要、流程同步與 Google Sheet 資料處理。</li></ul></div>
-          <div class="case-section"><h4>領域標籤</h4><div class="tag-row"><span class="tag">AI</span><span class="tag">Automation</span><span class="tag">Claude</span><span class="tag">n8n</span><span class="tag">Jira Automation</span><span class="tag">Product Operations</span></div></div>
-        </div>
-        <aside class="result-panel">
-          <div class="result-label">成果</div>
-          <div class="result-grid">
-            <div class="result-card"><strong>30%</strong><span>Overall Team Efficiency Improvement</span></div>
-            <div class="result-card"><strong>80-90%</strong><span>Reduction in Repetitive PM Tasks</span></div>
-            <div class="result-card"><strong>Claude + Jira + n8n</strong><span>Workflow Automation</span></div>
-            <div class="result-card"><strong>Release / PRD / Ticket</strong><span>Automation Pipeline</span></div>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="case-card fade-in">
-      <div class="case-head">
-        <div class="case-index">02 / 07</div>
-        <div><h3 class="case-title">Payment Platform</h3><div class="case-category">FinTech / 0→1</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>商業背景</h4><p>從零開始規劃金流平台。</p></div>
-          <div class="case-section"><h4>挑戰</h4><ul><li>需同時處理商戶、商戶代理、用戶、用戶代理、平台管理員。</li><li>Design a platform capable of supporting five independent operational roles while maintaining accounting consistency and transaction traceability.</li><li>需要建立多角色權限、交易流程、帳務邏輯與風控機制。</li></ul></div>
-          <div class="case-section"><h4>我的角色</h4><p>Product Manager</p></div>
-          <div class="case-section"><h4>解法</h4><ul><li>建立註冊、入金、出金與訂單管理流程。</li><li>規劃帳務流程、佣金流程與風控機制。</li><li>將多角色架構與帳務流程拆成可落地的後台系統模組。</li></ul></div>
-          <div class="case-section"><h4>領域標籤</h4><div class="tag-row"><span class="tag">FinTech</span><span class="tag">Payment</span><span class="tag">0→1</span><span class="tag">Accounting</span><span class="tag">Risk Control</span></div></div>
-        </div>
-        <aside class="result-panel">
-          <div class="result-label">成果</div>
-          <div class="result-grid">
-            <div class="result-card"><strong>0→1</strong><span>產品上線</span></div>
-            <div class="result-card"><strong>5</strong><span>後台系統</span></div>
-            <div class="result-card"><strong>多角色</strong><span>平台架構</span></div>
-            <div class="result-card"><strong>百萬級</strong><span>月營收規模</span></div>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="case-card fade-in">
-      <div class="case-head">
-        <div class="case-index">03 / 07</div>
-        <div><h3 class="case-title">NFT Exchange</h3><div class="case-category">Crypto Marketplace</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>商業背景</h4><p>建立 NFT Marketplace。</p></div>
-          <div class="case-section"><h4>挑戰</h4><ul><li>需要整合 KYC、錢包、商戶、NFT 交易與訂單流程。</li><li>需要協調多方利害關係人，確保交易、身分驗證與商戶流程能共同運作。</li></ul></div>
-          <div class="case-section"><h4>我的角色</h4><p>PM Lead</p></div>
-          <div class="case-section"><h4>解法</h4><ul><li>建立會員、商戶中心、KYC 與錢包流程。</li><li>規劃交易系統與訂單管理。</li><li>將 marketplace 的多角色平台架構拆解成可交付流程。</li></ul></div>
-          <div class="case-section"><h4>領域標籤</h4><div class="tag-row"><span class="tag">NFT</span><span class="tag">Marketplace</span><span class="tag">Crypto</span><span class="tag">Product Lead</span><span class="tag">0→1</span></div></div>
-        </div>
-        <aside class="result-panel">
-          <div class="result-label">成果</div>
-          <div class="result-grid">
-            <div class="result-card"><strong>0→1</strong><span>產品上線</span></div>
-            <div class="result-card"><strong>近 NT$1M</strong><span>月獲利</span></div>
-            <div class="result-card"><strong>多角色</strong><span>平台架構</span></div>
-            <div class="result-card"><strong>30+</strong><span>利害關係人協作</span></div>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="case-card fade-in">
-      <div class="case-head">
-        <div class="case-index">04 / 07</div>
-        <div><h3 class="case-title">Megawagi</h3><div class="case-category">Compliance Platform</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>商業背景</h4><p>因應菲律賓法規要求建立合法合規平台。</p></div>
-          <div class="case-section"><h4>挑戰</h4><ul><li>需要同時滿足法規要求、營運需求、使用者體驗。</li><li>需要持續配合政策調整，並讓產品流程可支援營運。</li></ul></div>
-          <div class="case-section"><h4>我的角色</h4><p>Product Owner</p></div>
-          <div class="case-section"><h4>解法</h4><ul><li>規劃多項合規流程與營運機制。</li><li>建立符合當地法規的產品架構與操作流程。</li></ul></div>
-          <div class="case-section"><h4>領域標籤</h4><div class="tag-row"><span class="tag">Compliance</span><span class="tag">Platform</span><span class="tag">Product Strategy</span><span class="tag">Regulation</span></div></div>
-        </div>
-        <aside class="result-panel">
-          <div class="result-label">成果</div>
-          <div class="result-grid">
-            <div class="result-card"><strong>成功</strong><span>產品上線</span></div>
-            <div class="result-card"><strong>合規</strong><span>平台架構</span></div>
-            <div class="result-card"><strong>支援</strong><span>營運流程</span></div>
-            <div class="result-card"><strong>對齊</strong><span>法規要求</span></div>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="case-card fade-in">
-      <div class="case-head">
-        <div class="case-index">05 / 07</div>
-        <div><h3 class="case-title">Fatcat 2.0</h3><div class="case-category">Platform Modernization</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>商業背景</h4><p>大型既有平台前台重構專案。</p></div>
-          <div class="case-section"><h4>挑戰</h4><ul><li>舊系統維護成本高。</li><li>功能擴充困難。</li><li>UI/UX 不一致。</li></ul></div>
-          <div class="case-section"><h4>我的角色</h4><p>Product Owner</p></div>
-          <div class="case-section"><h4>解法</h4><ul><li>推動前台重構與 UI/UX 重新設計。</li><li>規劃 API 串接與前後端分離。</li><li>讓前台重構能支援後續功能擴充與交付節奏。</li></ul></div>
-          <div class="case-section"><h4>領域標籤</h4><div class="tag-row"><span class="tag">Frontend</span><span class="tag">UX</span><span class="tag">Platform</span><span class="tag">Architecture</span><span class="tag">Modernization</span></div></div>
-        </div>
-        <aside class="result-panel">
-          <div class="result-label">成果</div>
-          <div class="result-grid">
-            <div class="result-card"><strong>Frontend / Backend</strong><span>Separation</span></div>
-            <div class="result-card"><strong>Scalable UI</strong><span>Architecture</span></div>
-            <div class="result-card"><strong>Improved</strong><span>Delivery Speed</span></div>
-            <div class="result-card"><strong>Reduced</strong><span>Future Technical Constraints</span></div>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <div class="case-group-title fade-in">其他專案</div>
-
-    <article class="case-card additional fade-in">
-      <div class="case-head">
-        <div class="case-index">06 / 07</div>
-        <div><h3 class="case-title">DeepLink</h3><div class="case-category">NFT Marketplace Platform</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>產品概要</h4><p>NFT Marketplace Platform，作為後續產品演進基礎架構。</p></div>
-          <div class="case-section"><h4>我的角色</h4><p>Product Manager</p></div>
-          <div class="case-section"><h4>主要貢獻</h4><p>建立 NFT marketplace 相關產品流程與平台基礎，支援後續功能延伸與產品架構演進。</p><div class="tag-row"><span class="tag">NFT Marketplace</span><span class="tag">Platform</span><span class="tag">Product Architecture</span></div></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="case-card additional fade-in">
-      <div class="case-head">
-        <div class="case-index">07 / 07</div>
-        <div><h3 class="case-title">Minterests</h3><div class="case-category">NFT Marketplace Extension</div></div>
-      </div>
-      <div class="case-body">
-        <div class="case-sections">
-          <div class="case-section"><h4>產品概要</h4><p>NFT Marketplace Extension。</p></div>
-          <div class="case-section"><h4>我的角色</h4><p>Product Manager</p></div>
-          <div class="case-section"><h4>主要貢獻</h4><p>建立獨立 NFT 平台產品流程，作為後續產品架構驗證案例。</p><div class="tag-row"><span class="tag">NFT Marketplace</span><span class="tag">Extension</span><span class="tag">Product Validation</span></div></div>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="contact" class="contact-wrap">
-  <div class="contact-inner">
-    <div>
-      <h2>期待參與下一個複雜平台的建置。</h2>
-      <p>我關注 Platform、FinTech、Crypto、Compliance 與 AI Workflow Automation 相關的 Product Lead / Senior PM 機會。</p>
-    </div>
-    <div class="contact-items">
-      <a class="contact-item" href="mailto:suzuki5403@gmail.com"><span><span class="contact-label">Email</span><span class="contact-value">suzuki5403@gmail.com</span></span><span>→</span></a>
-      <a class="contact-item" href="https://jeffsu0816.github.io/Jeff-su.github.io/resume"><span><span class="contact-label">Resume</span><span class="contact-value">查看完整履歷</span></span><span>→</span></a>
-    </div>
-  </div>
-</section>
-
-<footer>Jeff Su · Product Lead · Platform / FinTech / AI Workflow</footer>
-
-<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Custom cursor ──
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  if (cursor && ring && window.matchMedia('(pointer: fine)').matches) {
+    cursor.remove();
+    ring.remove();
+  }
+
+  // ── Scroll-in animations ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.exp-item, .skill-card, .edu-item, .contact-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    obs.observe(el);
   });
-}, { threshold: 0.08 });
 
-document.querySelectorAll('.fade-in').forEach((el, i) => {
-  el.style.transitionDelay = `${Math.min(i * 0.04, 0.24)}s`;
-  observer.observe(el);
-});
+  // ── Scroll indicator: hide when footer visible ──
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const footer = document.querySelector('footer');
+  const footerObs = new IntersectionObserver(entries => {
+    scrollIndicator.classList.toggle('hidden', entries[0].isIntersecting);
+  }, { threshold: 0.1 });
+  if (footer) footerObs.observe(footer);
 
-window.addEventListener('scroll', () => {
-  const btn = document.getElementById('scrollTop');
-  btn.style.display = window.scrollY > 420 ? 'flex' : 'none';
+  // ── Nav: scroll shrink + active highlight ──
+  const nav = document.getElementById('mainNav');
+  const sections = ['experience', 'skills', 'education'];
+  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 140) current = id;
+    });
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.section === current));
+  }
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    updateActiveNav();
+  }, { passive: true });
+  updateActiveNav();
+
+  // ── Nav: hamburger + smooth scroll ──
+  const navLinksEl = document.getElementById('navLinks');
+  const hamburger  = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinksEl.classList.toggle('open');
+  });
+  navLinks.forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.getElementById(a.dataset.section);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    navLinksEl.classList.remove('open');
+    hamburger.classList.remove('open');
+  }));
+
+  // ── Counter animation ──
+  function animCounter(el, target, suffix = '') {
+    const duration = 1500;
+    const startTime = performance.now();
+    (function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+  const statNums = document.querySelectorAll('.stat-num');
+  const counterTargets  = [6, 2, 4];
+  const counterSuffixes = ['+', '+', '+'];
+  let countersDone = false;
+  const counterObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting && !countersDone) {
+      countersDone = true;
+      statNums.forEach((el, i) => animCounter(el, counterTargets[i], counterSuffixes[i]));
+    }
+  }, { threshold: 0.5 });
+  if (statNums[0]) counterObs.observe(statNums[0]);
+
 });
 </script>
+
 </body>
 </html>
