@@ -626,6 +626,114 @@
     .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
   }
+
+  /* Unified visual polish across homepage / portfolio / resume */
+  :root {
+    --bg: #070c12;
+    --bg-2: #0b121d;
+    --bg-card: rgba(34, 199, 238, 0.045);
+    --border: rgba(148, 211, 226, 0.16);
+    --border-h: rgba(34, 199, 238, 0.34);
+    --text: #d7e8ee;
+    --text-muted: #86a8b5;
+    --cyan: #22c7ee;
+    --green: #38d98b;
+    --cyan-glow: 0 0 10px rgba(34, 199, 238, 0.12);
+    --green-glow: 0 0 8px rgba(56, 217, 139, 0.1);
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.8;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(34,199,238,0.055), transparent 42%),
+      var(--bg);
+  }
+
+  body::before {
+    background-image:
+      linear-gradient(rgba(34,199,238,0.014) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,199,238,0.014) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  nav,
+  .mobile-menu {
+    background: rgba(7,12,18,0.93);
+    border-color: var(--border);
+  }
+
+  .nav-logo,
+  .nav-links a,
+  .mobile-menu span,
+  .hero-eyebrow,
+  .hero-role,
+  .hero-bullet,
+  .btn,
+  .section-label,
+  .highlight-num,
+  .strength-meta,
+  .role-chip,
+  footer {
+    font-family: var(--font-head);
+    letter-spacing: 0.08em;
+  }
+
+  h1,
+  h2,
+  .highlight-title,
+  .do-title,
+  .strength-title,
+  .stat-num {
+    letter-spacing: 0;
+    text-shadow: none;
+  }
+
+  h1 .green {
+    text-shadow: none;
+  }
+
+  section {
+    max-width: 1040px;
+    padding: 6.5rem 2rem;
+  }
+
+  .hero-sub,
+  .intro-text,
+  .about-text {
+    color: var(--text-muted);
+  }
+
+  .btn,
+  .highlight-card,
+  .do-item,
+  .do-list-item,
+  .strength-item,
+  .stat-item,
+  .role-chip {
+    border-radius: 8px;
+  }
+
+  .btn-primary,
+  .btn-green,
+  .role-chip:hover,
+  .stat-num {
+    box-shadow: none;
+  }
+
+  .btn-primary:hover,
+  .btn-green:hover,
+  .highlight-card:hover,
+  .do-item:hover,
+  .do-list-item:hover,
+  .stat-item:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+  }
+
+  @media (max-width: 680px) {
+    section { padding: 4.5rem 1.25rem; }
+    .mobile-menu { top: 64px; }
+  }
 </style>
 </head>
 <body>
@@ -788,7 +896,7 @@
 <section id="contact">
 <div class="section-label">OPPORTUNITIES</div>
 <h2>OPEN TO NEW OPPORTUNITIES</h2>
-<p class="contact-sub">I’m currently exploring new opportunities where I can help teams build complex products, improve workflows, and scale product delivery with AI and automation.</p>
+<p class="contact-sub">目前開放 Product Lead / Senior Product Manager 相關機會，期待參與能建立複雜產品、優化團隊流程，並透過 AI 與自動化提升交付效率的團隊。</p>
 <div class="opportunity-roles">
 <span class="role-chip">Product Lead</span>
 <span class="role-chip">Senior Product Manager</span>
