@@ -169,12 +169,13 @@
   /* HERO */
   .hero {
     min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 120px 48px 80px;
+    display: grid; grid-template-columns: minmax(0, 1fr) 220px;
+    align-items: center; gap: 20px clamp(24px, 4vw, 56px);
+    padding: 120px 48px 28px;
     position: relative; z-index: 2;
     max-width: 1200px; margin: 0 auto;
   }
-  .hero-content { max-width: 700px; }
+  .hero-content { min-width: 0; max-width: 700px; }
 
   .hero-label {
     font-family: 'Share Tech Mono', monospace;
@@ -234,7 +235,7 @@
     padding-left: 20px;
   }
 
-  .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
   .tag {
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px;
@@ -303,9 +304,7 @@
 
   /* HERO STATS */
   .hero-stats {
-    position: absolute; right: 48px; top: 320px;
-    transform: none;
-    display: flex; flex-direction: column; gap: 24px;
+    display: grid; gap: 24px;
   }
   .stat-card {
     border: 1px solid var(--border);
@@ -484,7 +483,7 @@
   }
 
   /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .skill-card {
     border: 1px solid var(--border);
     background: var(--panel);
@@ -567,11 +566,32 @@
     color: rgba(0,255,157,0.035);
     letter-spacing: 8px;
   }
-  .ai-metrics { display: flex; gap: 48px; flex-wrap: wrap; }
-  .ai-metric { text-align: center; }
+  .ai-metrics {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+  }
+  .ai-metric-group {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  @media (max-width: 800px) {
+    .ai-metrics { grid-template-columns: minmax(0, 1fr); }
+  }
+  .ai-metric {
+    min-width: 0;
+    padding: 16px 0;
+    text-align: center;
+  }
   .ai-metric-num {
     font-family: 'Orbitron', monospace;
-    font-size: 48px;
+    font-size: 24px;
+    font-size: clamp(17px, 8cqi, 36px);
+    line-height: 1.2;
+    white-space: nowrap;
     font-weight: 900;
     color: var(--accent2);
     display: block;
@@ -581,15 +601,15 @@
   .ai-metric-label {
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px;
+    line-height: 1.5;
     color: var(--text-dim);
-    letter-spacing: 2px;
+    letter-spacing: 0.05em;
     margin-top: 8px;
+    overflow-wrap: anywhere;
   }
-  .ai-desc {
-    flex: 1;
-    min-width: 280px;
-  }
+  .ai-desc { min-width: 0; }
   .ai-desc p { font-size: 14px; line-height: 1.9; color: var(--text-dim); }
+  .ai-desc p + p { margin-top: 8px; }
   .ai-desc strong { color: var(--accent2); }
   .ai-use-cases {
     display: flex;
@@ -597,6 +617,8 @@
     gap: 8px;
     margin-top: 20px;
   }
+
+  .ai-use-cases .chip { max-width: 100%; overflow-wrap: anywhere; }
 
   /* ABOUT / BIO */
   .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -746,37 +768,13 @@
   }
   .glitch { animation: none; }
 
-  /* SCROLL indicator */
-  .scroll-indicator {
-    position: fixed; bottom: 32px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    z-index: 50;
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.4s ease;
-    animation: bounce 2s ease infinite;
-  }
-  .scroll-indicator.hidden { opacity: 0; }
-  .scroll-indicator::after {
-    content: '▼';
-    font-size: 12px;
-    color: var(--accent);
-  }
-  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
-
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     nav.scrolled { padding: 16px 24px; }
     .section-inner { padding: 80px 24px; }
-    .hero { padding: 100px 24px 80px; flex-direction: column; }
+    .hero { min-height: auto; grid-template-columns: minmax(0, 1fr); gap: 24px; }
     .hero-title { display: flex; line-height: 1.7; }
-    .hero-stats { position: static; transform: none; flex-direction: row; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .summary-grid { grid-template-columns: 1fr; }
     .featured-grid { grid-template-columns: 1fr; }
     .ai-section { padding: 32px 24px; }
@@ -910,8 +908,83 @@
     nav,
     nav.scrolled { padding: 0 24px; height: 64px; }
     .section-inner { padding: 4.5rem 1.5rem; }
-    .hero { padding: 96px 24px 72px; }
+    .hero { padding: 96px 24px 28px; }
     .nav-links { top: 64px; }
+  }
+  .section-title-en {
+    display: inline-block;
+    margin-inline-start: 0.65em;
+    color: var(--text-dim);
+    font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+    font-size: 0.6em;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .ai-section .section-title-en { font-size: 0.9em; }
+  .opportunities-title .section-title-en { font-size: 0.8em; }
+  .hero-title { max-width: 100%; }
+  .hero-title span { min-width: 0; }
+  .hero-label::before { flex: 0 0 24px; }
+  .tag, .chip, .exp-tag { max-width: 100%; overflow-wrap: anywhere; }
+  .section-title { min-width: 0; }
+  .section-title-en { margin-inline-start: 0.45em; }
+  .ai-section h3, .opportunities-title { position: relative; }
+
+  @media (max-width: 600px) {
+    .section-inner { padding: 3rem 16px; }
+    .hero { padding: 88px 16px 24px; }
+    .hero-en, .hero-title, .hero-desc { margin-bottom: 20px; }
+    .hero-stats { gap: 8px; }
+    .stat-card { padding: 12px 6px; }
+    .stat-num { font-size: clamp(20px, 6vw, 28px); }
+    .stat-label { letter-spacing: 0.03em; overflow-wrap: anywhere; }
+    .section-header { gap: 12px; margin-bottom: 24px; }
+    .section-title-en { display: block; margin-inline-start: 0; }
+    .summary-card, .exp-item, .skill-card { padding: 18px 16px; }
+    .skills-grid { grid-template-columns: minmax(0, 1fr); }
+    .ai-section { padding: 20px 16px; margin-top: 32px; }
+    .ai-section::before { display: none; }
+    .ai-metric { padding-block: 8px; }
+    .edu-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 4px 12px;
+      padding: 18px 16px;
+    }
+    .edu-period { grid-column: 2; margin-left: 0; }
+    .opportunities { padding: 0 16px 36px; }
+    .opportunities-card { padding: 18px 16px; }
+  }
+  .scroll-indicator {
+    position: fixed;
+    inset-inline-start: 50%;
+    inset-block-end: max(12px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 50;
+    pointer-events: none;
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    padding: 6px 12px 9px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+  }
+  .scroll-indicator[hidden] { display: none; }
+  .scroll-indicator::after {
+    content: '▼';
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-indicator::after { animation: scroll-arrow-bounce 2s ease-in-out infinite; }
+  }
+  @keyframes scroll-arrow-bounce {
+    50% { transform: translateY(6px); }
   }
 </style>
 </head>
@@ -941,18 +1014,18 @@
 <div style="position:relative;z-index:2;">
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-label animate delay-1">PRODUCT LEAD · PLATFORM · FINTECH · AI WORKFLOW</div>
+    <div class="hero-label animate delay-1">SENIOR PRODUCT MANAGER · B2B PLATFORMS · PAYMENTS</div>
     <h1 class="animate delay-2">JEFF SU</h1>
-    <div class="hero-en animate delay-2">Product Lead / Senior Product Manager</div>
-    <div class="hero-title animate delay-3">從 0→1 建立複雜平台，<br>帶領跨部門團隊，<br>並透過 AI 自動化提升交付效率。</div>
+    <div class="hero-en animate delay-2">Senior Product Manager · UIC</div>
+    <div class="hero-title animate delay-3"><span>規劃 B2B 支付平台，<br>推動產品從 0 到 1，帶領跨部門團隊完成交付。</span></div>
     <p class="hero-desc animate delay-3">
-      具備 <strong style="color:var(--accent)">6+ 年</strong>軟體產品與專案管理經驗，以及 <strong style="color:var(--accent)">3+ 年</strong> PM Lead 經驗。專注於平台型產品、FinTech、Crypto、合規系統與高複雜度跨部門專案，擅長從 0→1 建立產品與流程，並透過 AI 與自動化提升團隊交付效率。
+      具備 <strong style="color:var(--accent)">6+ 年</strong>軟體產品與專案管理經驗，目前在 UIC 擔任資深產品經理，負責雲端支付管理平台的產品路線圖與功能規劃，並推動支付設備、雲端平台與第三方金流服務整合。曾推動平台產品從 0 到 1 上線，並帶領 <strong style="color:var(--accent)">7 位 PM</strong>，建立需求評估與優先排序機制。
     </p>
-    <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent2);letter-spacing:2px;margin-bottom:14px;">CORE CAPABILITIES</div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--accent2);letter-spacing:2px;margin-bottom:14px;">【核心能力】</div>
     <div class="hero-tags animate delay-4">
       <span class="tag">Product Lead</span>
       <span class="tag">0→1 Product Builder</span>
-      <span class="tag">Complex Systems PM</span>
+      <span class="tag">API / Payment Integration</span>
       <span class="tag">Platform / FinTech</span>
       <span class="tag">AI Workflow Practitioner</span>
     </div>
@@ -973,7 +1046,6 @@
     </div>
   </div>
 
-  <div class="scroll-indicator">SCROLL</div>
 </div>
 </div>
 
@@ -982,21 +1054,21 @@
 <div class="section-inner">
   <div class="section-header">
     <span class="section-num">00</span>
-    <h2 class="section-title">Professional Summary</h2>
+    <h2 class="section-title">職涯摘要 <span class="section-title-en" lang="en">Professional Summary</span></h2>
     <div class="section-line"></div>
   </div>
   <div class="summary-grid">
     <div class="summary-card">
-      <p>具備 6+ 年產品與專案管理經驗，專注於平台型產品、FinTech、Crypto 與合規產品，能從 0→1 建立流程並推動產品持續擴展。</p>
+      <p>現任連宇（UIC）資深產品經理，負責 B2B 雲端支付平台的 Roadmap 與功能規劃，並推動支付設備、雲端平台與第三方金流服務整合。</p>
     </div>
     <div class="summary-card">
-      <p>擅長 0→1 產品建置、跨部門帶領、流程優化，以及透過 AI Workflow 提升團隊交付效率。</p>
+      <p>擅長從 0 到 1 規劃平台產品，帶領跨部門團隊推進開發與交付，並運用 AI 改善工作流程。</p>
     </div>
     <div class="summary-card">
-      <p>曾帶領 PM 團隊，建立產品開發流程，並交付金流平台、NFT 交易所、加密貨幣交易所與合規平台等複雜系統。</p>
+      <p>曾擔任 PM Lead，帶領 7 位 PM，建立需求評估與優先排序機制，並推動平台產品從 0 到 1 上線。</p>
     </div>
     <div class="summary-card">
-      <p>能在商業目標、營運需求與技術限制之間做取捨，將產品方向轉成可落地、可擴展的交付方案。</p>
+      <p>在商業目標、營運需求與技術限制之間做取捨，將產品方向轉化為可開發、可驗收的規格。</p>
     </div>
   </div>
 </div>
@@ -1012,20 +1084,42 @@
   </div>
 
   <div class="exp-list">
+    <!-- UIC -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-role">Senior Product Manager</div>
+        <div class="exp-period">2026/08 → 現在</div>
+      </div>
+      <div class="exp-company"><span>連宇股份有限公司（UIC）</span> · 電腦及其週邊設備製造業 · 新北市土城區</div>
+      <ul class="exp-achievements">
+        <li><strong>產品策略與 Roadmap</strong>｜規劃 UIC Connect 雲端支付管理平台的核心功能架構與產品路線圖，結合客戶需求、北美與拉丁美洲市場研究及技術可行性，評估功能優先順序。</li>
+        <li><strong>需求與功能設計</strong>｜將客戶與營運需求轉化為功能規格與操作流程，撰寫產品需求文件（PRD）及驗收標準，並製作互動原型。</li>
+        <li><strong>跨國支付整合</strong>｜協調軟體、硬體、QA、商務團隊及海外合作夥伴，推動支付設備、雲端平台與第三方金流服務整合，管理需求變更與技術風險，並協調客戶驗證及支付合規需求。</li>
+        <li><strong>開發與交付流程</strong>｜推動 Jira 導入，規劃四個專案架構與工作流程，定義產品、開發與測試團隊的交接方式，以及 QA 測試、使用者驗收（UAT）與版本發布流程。</li>
+        <li><strong>商業化與銷售支援</strong>｜研究設備管理、交易管理、支付閘道與加值服務的 SaaS 收費方案，分析歷史設備出貨資料，並製作中英文產品簡介與銷售訓練教材，支援商務評估與客戶導入。</li>
+      </ul>
+      <div class="exp-highlight">
+        <span class="exp-tag">B2B SaaS</span>
+        <span class="exp-tag">Product Roadmap</span>
+        <span class="exp-tag">Payment Integration</span>
+        <span class="exp-tag">Device Management</span>
+        <span class="exp-tag">Commercialization</span>
+      </div>
+    </div>
+
     <!-- JY Diamond -->
     <div class="exp-item">
       <div class="exp-header">
         <div class="exp-role">PM Lead / Product Owner</div>
-        <div class="exp-period">2024/09 → 現在</div>
+        <div class="exp-period">2024/09 → 2026/08</div>
       </div>
       <div class="exp-company"><span>鑫鼎鑽科技有限公司</span> · 電腦軟體服務業 · 台北市南港區</div>
       <ul class="exp-achievements">
-        <li>2024/09–2025/05 擔任 Product Owner，2025/06 晉升 PM Lead，負責產品流程、團隊協作與跨部門推進</li>
-        <li>管理 <strong>7 位 PM</strong>，建立需求評估、優先排序與協作機制，協助團隊聚焦高影響項目</li>
-        <li>擔任大型平台前後端重構專案 PO，協調設計、開發、QA、AM 與支付團隊，推動產品架構與 UI/UX 優化</li>
-        <li>建立需求文件、驗收標準與跨部門溝通節點，降低需求落差與溝通成本，提升交付穩定性</li>
-        <li>導入 Claude、ChatGPT、Jira Automation 與 n8n 至 PM 日常流程，應用於需求整理、建票、Release 公告、Hotfix 公告與站會同步</li>
-        <li>透過 AI Workflow 與流程優化，整體效率提升約 <strong>20–30%</strong>，部分重複性流程提升 <strong>80–90%</strong></li>
+        <li>2024/09 擔任 Product Owner，2025/06 晉升為 PM Lead，帶領 <strong>7 位 PM</strong>，建立以產品影響、投入成本與風險為依據的需求評估與排序機制，讓團隊聚焦高影響項目。</li>
+        <li>重整跨部門開發與交付流程，交付穩定性提升約 <strong>20%</strong>。</li>
+        <li>擔任大型平台前後端重構專案 PO，協調設計、開發、QA、AM 與支付團隊，推動產品架構與 UI/UX 優化。</li>
+        <li>優化註冊與儲值流程，重新定義改版範圍，減少操作中斷，轉換率提升約 <strong>10–20%</strong>。</li>
+        <li>導入 Claude 輔助需求整理、PRD 草擬與團隊溝通，並透過 Jira Automation 與 n8n 自動化票務操作，整體工作效率提升約 <strong>20%</strong>，部分流程效率提升約 <strong>80–90%</strong>。</li>
       </ul>
       <div class="exp-highlight">
         <span class="exp-tag">Product Lead</span>
@@ -1045,9 +1139,7 @@
       </div>
       <div class="exp-company"><span>樺晟電子股份有限公司</span> · 電腦及其週邊設備製造業 · 台北市南港區</div>
       <ul class="exp-achievements">
-        <li>整合硬體、IoT 與現場設備流程，先釐清例外情境與維運風險，降低專案落地阻力（約 10~20%）</li>
-        <li>在需求不明確情況下，先定義現場流程與驗收節點，再轉成可執行規格，讓溝通往返減少（約 20~30%）</li>
-        <li>先判斷硬體限制與高風險流程，再決定開發範圍與上線順序，讓專案能在短期內穩定推進</li>
+        <li>負責智慧販賣機專案，協調內部團隊與供應商，推進硬體、IoT 與現場設備系統整合。</li>
       </ul>
       <div class="exp-highlight">
         <span class="exp-tag">IoT</span>
@@ -1064,12 +1156,11 @@
       </div>
       <div class="exp-company"><span>羅卡斯科技股份有限公司</span> · 電腦軟體服務業 · 台北市大同區</div>
       <ul class="exp-achievements">
-        <li>主導 NFT 交易所 0→1 與 1→10 產品規劃，涵蓋會員、商家、代理、KYC、支付、錢包、上架、訂單與交易流程</li>
-        <li>產品上線後創造每月近百萬元利潤，並持續優化交易、資產與營運流程以支撐成長</li>
-        <li>參與加密貨幣交易所 0→1，涵蓋會員系統、鏈上充值提領、節點監聽、訂單與交易相關流程</li>
-        <li>帶領 <strong>30+ 跨部門成員</strong>協作，包含開發、設計、QA、營運、客服與管理層，整合多方需求並推動落地</li>
-        <li>建立需求拆解、優先排序、驗收標準與新人 PM 指導流程，降低需求落差與返工風險</li>
-        <li>評估 GameFi、社群平台與 AI 交友等新產品方向，協助判斷產品延伸與投入順序</li>
+        <li>推動 <strong>NFT 交易所從 0 到 1 上線</strong>，定義會員、交易與資產管理的核心流程，並協調跨部門完成產品交付。產品規劃也涵蓋商家、代理、KYC、支付、錢包、上架與訂單。</li>
+        <li>帶領 <strong>30 多人的跨職能團隊</strong>，建立需求評估與風險決策機制，將開發資源集中於高影響功能，並建立驗收標準與新人 PM 指導流程。</li>
+        <li>重整交易、錢包與帳務邏輯，優先處理高風險流程，降低營運與例外處理成本約 <strong>20–30%</strong>。</li>
+        <li>參與加密貨幣交易所從 0 到 1 的規劃，範圍涵蓋會員、鏈上充值與提領、節點監聽及訂單與交易相關流程。</li>
+        <li>評估 GameFi、社群平台與 AI 交友等新產品方向，協助判斷產品延伸與投入順序。</li>
       </ul>
       <div class="featured-project">
         <div class="featured-kicker">Featured Project</div>
@@ -1081,7 +1172,7 @@
           </div>
           <div>
             <div class="featured-label">Scope</div>
-            <div class="featured-value">Membership / KYC / Wallet / Merchant / NFT Trading / Order Flow</div>
+            <div class="featured-value">Membership / NFT Trading / Asset Management / KYC / Wallet / Merchant / Order Flow</div>
           </div>
           <div>
             <div class="featured-label">Result</div>
@@ -1107,11 +1198,10 @@
       </div>
       <div class="exp-company"><span>萬達資訊服務有限公司</span> · 電腦軟體服務業 · 台北市中正區</div>
       <ul class="exp-achievements">
-        <li>從 0→1 規劃金流系統產品，涵蓋註冊、儲值、訂單、帳務邏輯、費率、反傭與風控流程</li>
-        <li>規劃 1 個前台與 5 個後台系統，包含總控、商戶、商戶代理、用戶與用戶代理等多角色使用情境</li>
-        <li>產品上線後支撐多品牌營運，並帶來每月數百萬元營收</li>
-        <li>協調近 20 人跨部門團隊，建立功能優先順序與風險評估機制，讓高複雜度專案穩定推進</li>
-        <li>在需求不明確情況下，先定義金流、帳務與對帳核心流程，再轉成可執行規格與驗收標準</li>
+        <li>從 <strong>0 到 1 規劃金流系統</strong>，定義註冊、儲值、訂單與帳務流程，涵蓋費率、反傭及風控。系統上線後支援多品牌營運，帶來每月數百萬元營收。</li>
+        <li>規劃 1 個前台與 5 個後台系統，包含總控、商戶、商戶代理、用戶與用戶代理等多角色使用情境。</li>
+        <li>協調近 20 人的跨部門團隊，主導功能取捨與開發優先順序，透過風險評估與範圍控管推動系統如期上線。</li>
+        <li>將金流、帳務與對帳需求轉化為功能規格與驗收標準，減少跨部門理解落差，降低返工約 <strong>20%</strong>。</li>
       </ul>
       <div class="exp-highlight">
         <span class="exp-tag">Payment Platform</span>
@@ -1126,42 +1216,42 @@
     <!-- 鑫高科技 -->
     <div class="exp-item">
       <div class="exp-header">
-        <div class="exp-role">Sales Engineer</div>
+        <div class="exp-role">業務工程師</div>
         <div class="exp-period">2017/04 → 2019/12</div>
       </div>
       <div class="exp-company"><span>鑫高科技有限公司</span> · 綜合商品批發代理業 · 台北市大同區</div>
       <ul class="exp-achievements">
-        <li>先釐清通路需求與銷售重點，再整理成提案與活動方案，提升產品導入效率與合作穩定性（約 10~20%）</li>
-        <li>建立售後支援與教育訓練節奏，讓客服與維修端的溝通往返減少（約 20~30%）</li>
-        <li>帶領 4 人以下團隊安排維修與庫存節奏，讓交付與支援更穩定（約 10~20%）</li>
+        <li>協助通路商推廣產品，提供售後技術支援，並負責客服與維修人員的教育訓練。</li>
       </ul>
     </div>
   </div>
 
   <!-- AI WORKFLOW -->
   <div class="ai-section">
-    <div class="section-num" style="margin-bottom:24px;">✦ AI Workflow & Automation</div>
+    <h3 class="section-num" style="margin-bottom:24px;">AI 應用與流程自動化 <span class="section-title-en" lang="en">AI Workflow &amp; Automation</span></h3>
     <div class="ai-metrics">
-      <div class="ai-metric">
-        <span class="ai-metric-num">30%</span>
-        <div class="ai-metric-label">Overall Efficiency Improvement</div>
-      </div>
-      <div class="ai-metric">
-        <span class="ai-metric-num">80–90%</span>
-        <div class="ai-metric-label">Improvement in Selected Repetitive Workflows</div>
+      <div class="ai-metric-group">
+        <div class="ai-metric">
+          <span class="ai-metric-num">20%</span>
+          <div class="ai-metric-label">整體工作效率提升</div>
+        </div>
+        <div class="ai-metric">
+          <span class="ai-metric-num">80–90%</span>
+          <div class="ai-metric-label">部分重複流程的效率提升</div>
+        </div>
       </div>
       <div class="ai-desc">
-        <p>使用 <strong>Claude、ChatGPT、Jira Automation、n8n</strong> 導入 AI-driven workflows，應用於產品團隊的日常協作。</p>
-        <p>將 AI 應用在需求整理、Jira 建票、Release 管理、流程同步與跨部門溝通，減少重複性營運工作，讓交付節奏更穩定。</p>
+        <p>將 <strong>Claude、ChatGPT、Jira Automation 和 n8n</strong> 導入產品團隊日常工作，協助整理需求與草擬 PRD。</p>
+        <p>使用 Claude 搭配 MCP 與 Connector 建立 Jira 工單、草擬版本發布與緊急修正公告，以及整理站會摘要。透過 Jira Automation 與 n8n 自動同步工單狀態，減少重複操作。</p>
         <div class="ai-use-cases">
-          <span class="chip">AI-assisted PRD &amp; Requirement Drafting</span>
-          <span class="chip">Jira Ticket Template &amp; Automation</span>
-          <span class="chip">Release / Hotfix Announcement</span>
-          <span class="chip">Daily Stand-up Summary</span>
-          <span class="chip">Jira Status Sync</span>
-          <span class="chip">n8n Workflow Automation</span>
-          <span class="chip">Figma Spec Review with Claude</span>
-          <span class="chip">Google Sheet Workflow Processing</span>
+          <span class="chip">AI 輔助需求整理與 PRD 草擬</span>
+          <span class="chip">Jira 工單範本與自動化</span>
+          <span class="chip">版本發布與 Hotfix 公告</span>
+          <span class="chip">每日站會摘要</span>
+          <span class="chip">Jira 工單狀態同步</span>
+          <span class="chip">n8n 流程自動化</span>
+          <span class="chip">用 Claude 檢視 Figma 規格</span>
+          <span class="chip">Google 試算表流程處理</span>
         </div>
       </div>
     </div>
@@ -1174,37 +1264,40 @@
 <div class="section-inner">
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">Core Expertise & Tools</h2>
+    <h2 class="section-title">核心專長與工具 <span class="section-title-en" lang="en">Core Expertise &amp; Tools</span></h2>
     <div class="section-line"></div>
   </div>
 
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-card-icon">🧠</div>
-      <div class="skill-card-title">Core Expertise</div>
+      <div class="skill-card-title">核心專長</div>
       <div class="chip-grid">
-        <span class="chip">Product Strategy</span>
-        <span class="chip">0→1 Product Development</span>
-        <span class="chip">Product Operations</span>
-        <span class="chip">Platform Product Management</span>
-        <span class="chip">FinTech / Payment Flow</span>
-        <span class="chip">Crypto / NFT Product Flow</span>
-        <span class="chip">Stakeholder Management</span>
-        <span class="chip">Cross-functional Leadership</span>
-        <span class="chip">Process Optimization</span>
-        <span class="chip">AI Workflow Automation</span>
+        <span class="chip">產品策略與 Roadmap</span>
+        <span class="chip">PRD、原型與驗收標準</span>
+        <span class="chip">0→1 產品開發</span>
+        <span class="chip">產品營運</span>
+        <span class="chip">平台產品管理</span>
+        <span class="chip">B2B SaaS／設備管理</span>
+        <span class="chip">API／支付整合</span>
+        <span class="chip">加密貨幣／NFT 產品流程</span>
+        <span class="chip">利害關係人管理</span>
+        <span class="chip">跨部門協作與帶領團隊</span>
+        <span class="chip">QA／UAT／版本發布管理</span>
+        <span class="chip">AI 工作流程自動化</span>
       </div>
     </div>
 
     <div class="skill-card">
       <div class="skill-card-icon">🛠️</div>
-      <div class="skill-card-title">Tools</div>
+      <div class="skill-card-title">常用工具</div>
       <div class="chip-grid">
         <span class="chip">Jira</span>
         <span class="chip">Confluence</span>
         <span class="chip">Figma</span>
         <span class="chip">Axure RP</span>
-        <span class="chip">Claude</span>
+        <span class="chip">Claude / MCP / Connectors</span>
+        <span class="chip">Jira Automation</span>
         <span class="chip">ChatGPT</span>
         <span class="chip">n8n</span>
         <span class="chip">Google Workspace</span>
@@ -1249,16 +1342,18 @@
 <!-- OPPORTUNITIES -->
 <div class="opportunities">
   <div class="opportunities-card">
-    <div class="opportunities-title">Open to Opportunities</div>
+    <div class="opportunities-title">關注的職涯機會 <span class="section-title-en" lang="en">Open to Opportunities</span></div>
     <div class="opportunities-list">
-      <span class="chip">Product Lead</span>
-      <span class="chip">Senior Product Manager</span>
-      <span class="chip">AI Product Manager</span>
-      <span class="chip">FinTech Product Manager</span>
-      <span class="chip">Platform Product Manager</span>
+      <span class="chip">產品主管（Product Lead）</span>
+      <span class="chip">資深產品經理</span>
+      <span class="chip">AI 產品經理</span>
+      <span class="chip">金融科技產品經理</span>
+      <span class="chip">平台產品經理</span>
     </div>
   </div>
 </div>
+
+<div class="scroll-indicator" aria-hidden="true">SCROLL</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1290,13 +1385,14 @@ document.addEventListener('DOMContentLoaded', () => {
     obs.observe(el);
   });
 
-  // ── Scroll indicator: hide when footer visible ──
+  // Hide the scroll cue while the footer is in view.
   const scrollIndicator = document.querySelector('.scroll-indicator');
   const footer = document.querySelector('footer');
-  const footerObs = new IntersectionObserver(entries => {
-    scrollIndicator.classList.toggle('hidden', entries[0].isIntersecting);
-  }, { threshold: 0.1 });
-  if (footer) footerObs.observe(footer);
+  function updateScrollCue() {
+    scrollIndicator.hidden = footer.getBoundingClientRect().top < window.innerHeight;
+  }
+  window.addEventListener('resize', updateScrollCue);
+  updateScrollCue();
 
   // ── Nav: scroll shrink + active highlight ──
   const nav = document.getElementById('mainNav');
@@ -1315,6 +1411,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
     updateActiveNav();
+    updateScrollCue();
   }, { passive: true });
   updateActiveNav();
 
@@ -1345,7 +1442,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })(performance.now());
   }
   const statNums = document.querySelectorAll('.stat-num');
-  const counterTargets  = [6, 2, 4];
+  const counterTargets  = [6, 3, 4];
   const counterSuffixes = ['+', '+', '+'];
   let countersDone = false;
   const counterObs = new IntersectionObserver(entries => {
